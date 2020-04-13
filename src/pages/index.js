@@ -1,10 +1,3 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-const Home = (props) => {
-  return <div></div>;
-};
-
-Home.propTypes = {};
+import Home from "../modules/Home";
 
 export default Home;
