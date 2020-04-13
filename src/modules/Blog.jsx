@@ -1,23 +1,35 @@
 /**@jsx jsx */
 import React from "react";
 import { jsx } from "@emotion/core";
-import { Flex, Box, Text, Stack, Heading, Button } from "@chakra-ui/core";
+import {
+  Flex,
+  Box,
+  Text,
+  Stack,
+  Heading,
+  Button,
+  useColorMode,
+} from "@chakra-ui/core";
 import PropTypes from "prop-types";
 
 const Home = (props) => {
+  const { colorMode } = useColorMode();
+
+  const bgColor = { light: "gray.50", dark: "gray.800" };
+  const textColor = { light: "black", dark: "white" };
+
   return (
     <Flex
       display="flex"
       flexDirection="column"
       alignItems="center"
-      backgroundColor="gray.50"
+      backgroundColor={bgColor[colorMode]}
       pb={80}
       width="full"
-      minHeight="100vh"
     >
       <Box maxWidth={700} w="full" as="main">
         <Stack spacing={3} p={8}>
-          <Text>Work in progress 🚧 ...</Text>
+          <Text color={textColor[colorMode]}>Work in progress 🚧 ...</Text>
         </Stack>
       </Box>
     </Flex>

@@ -1,13 +1,25 @@
 import React from "react";
-import { Flex, Button, Link, Box, IconButton } from "@chakra-ui/core";
+import {
+  Flex,
+  Button,
+  Link,
+  Box,
+  IconButton,
+  useColorMode,
+} from "@chakra-ui/core";
 import PropTypes from "prop-types";
 import { GitHub, Twitter, Mail } from "react-feather";
 
 const Page = ({ children }) => {
+  const { colorMode } = useColorMode();
+  console.log("colorMode", colorMode);
+
+  const footerBgColor = { light: "white", dark: "gray.900" };
+  const textColor = { light: "black", dark: "white" };
   return (
     <Flex
       justify="center"
-      backgroundColor="white"
+      backgroundColor={footerBgColor[colorMode]}
       width="full"
       as="footer"
       position="absolute"
@@ -17,7 +29,7 @@ const Page = ({ children }) => {
       direction="column"
       flexWrap="wrap"
     >
-      <Flex align="center">
+      <Flex align="center" color={textColor[colorMode]}>
         Built with{" "}
         <Link href="https://nextjs.org/" isExternal>
           <Button p={2} variant="link" variantColor="black">
