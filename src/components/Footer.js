@@ -1,6 +1,5 @@
 import React from "react";
-import { Flex, Button, Box } from "@chakra-ui/core";
-import Link from "next/link";
+import { Flex, Button, Link } from "@chakra-ui/core";
 import PropTypes from "prop-types";
 
 const Page = ({ children }) => {
@@ -16,13 +15,17 @@ const Page = ({ children }) => {
       align="center"
     >
       Built with{" "}
-      <Button p={2} variant="link" variantColor="black">
-        Next
-      </Button>{" "}
+      <Link href="https://nextjs.org/" isExternal>
+        <Button p={2} variant="link" variantColor="black">
+          Next
+        </Button>
+      </Link>{" "}
       & hosted in{" "}
-      <Button p={2} variant="link" variantColor="black">
-        Now
-      </Button>
+      <Link href="https://zeit.co" isExternal>
+        <Button p={2} variant="link" variantColor="black">
+          Now
+        </Button>
+      </Link>
     </Flex>
   );
 };
