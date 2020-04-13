@@ -13,7 +13,7 @@ const Home = (props) => {
   const textColor = { light: "black", dark: "gray.400" };
   const headingColor = { light: "black", dark: "white" };
 
-  const StyledStrike = styled("div")`
+  const StyledStrike = styled("span")`
     display: inline;
     background-repeat: no-repeat;
     transition: all 500ms ease-in-out;
