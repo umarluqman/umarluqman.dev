@@ -4,6 +4,22 @@ import { jsx } from "@emotion/core";
 import { Flex, Box, Text, Stack, Heading, Button } from "@chakra-ui/core";
 import PropTypes from "prop-types";
 import Link from "next/link";
+import styled from "@emotion/styled";
+
+const StyledStrike = styled("div")`
+  display: inline;
+  background-repeat: no-repeat;
+  transition: all 500ms ease-in-out;
+  background-position: center left;
+  background-size: 100% 1px;
+  background-image: linear-gradient(to right, #000, #000);
+  padding-bottom: 4px;
+  &:hover {
+    background-position: bottom left;
+    background-size: 100% 1px;
+    /* font-style: italic; */
+  }
+`;
 
 const Home = (props) => {
   return (
@@ -14,11 +30,14 @@ const Home = (props) => {
         </Heading>
         <Text fontSize="lg">
           I'm a developer & creator based in Malaysia 🇲🇾. I write applications
-          with the focus on solving problems and future maintability
-          <strike>
+          with the focus on solving problem bit by bit while considering future
+          maintability and business aspects{" "}
+          <StyledStrike>
             {" "}
-            rather than feeding my own satisfaction of writing complex code.
-          </strike>
+            rather than feeding my own desire of writing complex code to feel
+            smart
+          </StyledStrike>
+          .
         </Text>
         <Text color="gray.600">
           I prefer to write code expressively with minimal abstractions.
