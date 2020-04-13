@@ -29,9 +29,9 @@ const Home = (props) => {
           Hi, I'm Umar Luqman
         </Heading>
         <Text fontSize="lg">
-          I'm a software developer based in Malaysia 🇲🇾. I write web & mobile
-          applications with the focus on solving problem bit by bit while
-          considering future maintability and business aspects{" "}
+          I'm a software developer based in Malaysia 🇲🇾. I write applications
+          with the focus on solving problem bit by bit while considering future
+          maintability and business aspects{" "}
           <StyledStrike>
             {" "}
             rather than feeding my own impulse of writing complex code to feel
