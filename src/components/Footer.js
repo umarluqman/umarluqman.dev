@@ -1,19 +1,11 @@
-import React from "react";
-import {
-  Flex,
-  Button,
-  Link,
-  Box,
-  IconButton,
-  useColorMode,
-} from "@chakra-ui/core";
+import React, { useContext } from "react";
+import { Flex, Button, Link, Box, IconButton } from "@chakra-ui/core";
 import PropTypes from "prop-types";
 import { GitHub, Twitter, Mail } from "react-feather";
+import { ColorModeContext } from "../hooks/useColorMode";
 
-const Page = ({ children }) => {
-  const { colorMode } = useColorMode();
-  console.log("colorMode", colorMode);
-
+const Footer = (props) => {
+  const colorMode = useContext(ColorModeContext);
   const footerBgColor = { light: "white", dark: "gray.900" };
   const textColor = { light: "black", dark: "white" };
   return (
@@ -32,13 +24,13 @@ const Page = ({ children }) => {
       <Flex align="center" color={textColor[colorMode]}>
         Built with{" "}
         <Link href="https://nextjs.org/" isExternal>
-          <Button p={2} variant="link" variantColor="black">
+          <Button p={2} variant="link" color={textColor[colorMode]}>
             Next
           </Button>
         </Link>{" "}
         & hosted in{" "}
         <Link href="https://zeit.co" isExternal>
-          <Button p={2} variant="link" variantColor="black">
+          <Button p={2} variant="link" color={textColor[colorMode]}>
             Now
           </Button>
         </Link>{" "}
@@ -54,6 +46,7 @@ const Page = ({ children }) => {
                 height: 18,
               },
             }}
+            variantColor={textColor[colorMode]}
           ></IconButton>
         </Link>
         <Link href="https://github.com/umarluqman" isExternal>
@@ -84,6 +77,6 @@ const Page = ({ children }) => {
   );
 };
 
-Page.propTypes = {};
+Footer.propTypes = {};
 
-export default Page;
+export default Footer;

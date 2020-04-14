@@ -1,19 +1,12 @@
 /**@jsx jsx */
-import React from "react";
+import React, { useContext } from "react";
 import { jsx } from "@emotion/core";
-import {
-  Flex,
-  Box,
-  Text,
-  Stack,
-  Heading,
-  Button,
-  useColorMode,
-} from "@chakra-ui/core";
+import { Flex, Box, Text, Stack } from "@chakra-ui/core";
 import PropTypes from "prop-types";
+import { ColorModeContext } from "../hooks/useColorMode";
 
-const Home = (props) => {
-  const { colorMode } = useColorMode();
+const Blog = (props) => {
+  const colorMode = useContext(ColorModeContext);
 
   const bgColor = { light: "gray.50", dark: "gray.800" };
   const textColor = { light: "black", dark: "white" };
@@ -36,6 +29,6 @@ const Home = (props) => {
   );
 };
 
-Home.propTypes = {};
+Blog.propTypes = {};
 
-export default Home;
+export default Blog;

@@ -1,13 +1,14 @@
 /**@jsx jsx */
-import React from "react";
+import { useContext } from "react";
 import { jsx } from "@emotion/core";
-import { Flex, Box, Text, Stack, Heading, useColorMode } from "@chakra-ui/core";
+import { Flex, Box, Text, Stack, Heading } from "@chakra-ui/core";
 import PropTypes from "prop-types";
 import Link from "next/link";
 import styled from "@emotion/styled";
+import { ColorModeContext } from "../hooks/useColorMode";
 
 const Home = (props) => {
-  const { colorMode } = useColorMode();
+  const colorMode = useContext(ColorModeContext);
 
   const smallTextcolor = { light: "gray.600", dark: "gray.200" };
   const textColor = { light: "black", dark: "gray.400" };
