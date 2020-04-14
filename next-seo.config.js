@@ -1,4 +1,4 @@
-const title = "Umar Luqman – Developer.";
+const title = "Umar Luqman – 👨🏻‍💻";
 const description = "Front-end developer & JavaScript enthusiast";
 
 const SEO = {

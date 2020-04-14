@@ -41,8 +41,8 @@ const Home = (props) => {
         >
           Hey, I'm Umar Luqman
         </Heading>
-        <Text color={textColor[colorMode]}>
-          I'm a software developer based in Malaysia 🇲🇾. I write applications
+        <Text color={textColor[colorMode]} fontFamily="Inter">
+          I'm a front-end developer based in Malaysia 🇲🇾. I write applications
           with the focus on solving problem bit by bit while considering future
           maintability and business aspects{" "}
           <StyledStrike>
@@ -50,11 +50,12 @@ const Home = (props) => {
             rather than feeding my own impulse of writing complex code to feel
             smart
           </StyledStrike>
-          .
+          . <br></br>I prefer to write code expressively with minimal
+          abstractions.
         </Text>
-        <Text color={smallTextcolor[colorMode]}>
+        {/* <Text color={smallTextcolor[colorMode]} fontFamily="Inter">
           I prefer to write code expressively with minimal abstractions.
-        </Text>
+        </Text> */}
       </Stack>
     </Box>
   );
