@@ -10,7 +10,7 @@ const Home = (props) => {
   const { colorMode } = useColorMode();
 
   const smallTextcolor = { light: "gray.700", dark: "gray.200" };
-  const textColor = { light: "gray.700", dark: "gray.400" };
+  const textColor = { light: "gray.700", dark: "gray.200" };
   const headingColor = { light: "black", dark: "white" };
 
   const StyledStrike = styled("span")`
