@@ -9,8 +9,8 @@ import styled from "@emotion/styled";
 const Home = (props) => {
   const { colorMode } = useColorMode();
 
-  const smallTextcolor = { light: "gray.600", dark: "gray.200" };
-  const textColor = { light: "black", dark: "gray.400" };
+  const smallTextcolor = { light: "gray.700", dark: "gray.200" };
+  const textColor = { light: "gray.700", dark: "gray.400" };
   const headingColor = { light: "black", dark: "white" };
 
   const StyledStrike = styled("span")`
@@ -34,13 +34,14 @@ const Home = (props) => {
         <Heading
           as="h1"
           size="2xl"
-          fontWeight="600"
+          fontWeight="700"
           my={8}
           color={headingColor[colorMode]}
+          letterSpacing="-0.025em"
         >
-          Hi, I'm Umar Luqman
+          Hey, I'm Umar Luqman
         </Heading>
-        <Text fontSize="lg" color={textColor[colorMode]}>
+        <Text color={textColor[colorMode]}>
           I'm a software developer based in Malaysia 🇲🇾. I write applications
           with the focus on solving problem bit by bit while considering future
           maintability and business aspects{" "}

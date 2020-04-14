@@ -12,7 +12,6 @@ import { GitHub, Twitter, Mail } from "react-feather";
 
 const Page = ({ children }) => {
   const { colorMode } = useColorMode();
-  console.log("colorMode", colorMode);
 
   const footerBgColor = { light: "white", dark: "gray.900" };
   const textColor = { light: "black", dark: "white" };
