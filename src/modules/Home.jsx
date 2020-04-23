@@ -35,27 +35,35 @@ const Home = (props) => {
           as="h1"
           size="2xl"
           fontWeight="700"
-          my={8}
+          // mt={8}
+          // mb={10}
           color={headingColor[colorMode]}
           letterSpacing="-0.025em"
         >
           Hey, I'm Umar Luqman
         </Heading>
-        <Text color={textColor[colorMode]} fontFamily="Inter">
-          I'm a front-end developer based in Malaysia 🇲🇾. I write applications
-          with the focus on solving problem bit by bit while considering future
-          maintability and business aspects{" "}
+        <Box w="full" height={2}></Box>
+        <Text color={textColor[colorMode]} fontFamily="Inter" lineHeight={1.8}>
+          I'm a front-end developer based in Malaysia 🇲🇾 with primary focus on
+          future maintability and business aspects{" "}
           <StyledStrike>
             {" "}
             rather than feeding my own impulse of writing complex code to feel
             smart
           </StyledStrike>
-          . <br></br>I prefer to write code expressively with minimal
-          abstractions.
+          . <br></br>
         </Text>
-        {/* <Text color={smallTextcolor[colorMode]} fontFamily="Inter">
-          I prefer to write code expressively with minimal abstractions.
-        </Text> */}
+        <Box w="full" height={2}></Box>
+        <Text
+          color={smallTextcolor[colorMode]}
+          fontFamily="Inter"
+          lineHeight={1.8}
+        >
+          I prefer to write code expressively with minimal abstraction to avoid
+          hasty abstraction. I'm aware of the tradeoffs of both{" "}
+          <b>DRY (Don't repeat yourself)</b> and{" "}
+          <b>WET (Write everthing twice)</b> styles of coding.
+        </Text>
       </Stack>
     </Box>
   );
