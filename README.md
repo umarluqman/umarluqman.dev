@@ -1,4 +1,4 @@
-# Blog with Next.js
+# Persoanl site with Next.js & Chakra UI
 
 My personal static site without any CMS yet.
 
