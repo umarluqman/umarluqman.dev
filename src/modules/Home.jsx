@@ -78,14 +78,16 @@ const Home = (props) => {
           lineHeight={1.8}
         >
           Find my works at{" "}
-          <Button
-            variant="link"
-            verticalAlign="unset"
-            color={showcaseColor[colorMode]}
-            rightIcon="external-link"
-          >
-            Showcase
-          </Button>
+          <a href="https://showcase.umarluqman.dev">
+            <Button
+              variant="link"
+              verticalAlign="unset"
+              color={showcaseColor[colorMode]}
+              rightIcon="external-link"
+            >
+              Showcase
+            </Button>
+          </a>
         </Text>
       </Stack>
     </Box>
