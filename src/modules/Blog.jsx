@@ -29,7 +29,7 @@ const Home = (props) => {
     >
       <Box maxWidth={700} w="full" as="main">
         <Stack spacing={3} p={8}>
-          <Text color={textColor[colorMode]}>Work in progress 🚧 ...</Text>
+          <Text color={textColor[colorMode]}>Work in progress 🚧</Text>
         </Stack>
       </Box>
     </Flex>

@@ -11,6 +11,7 @@ import { cache } from "emotion";
 export default class App extends NextApp {
   render() {
     const { Component, pageProps } = this.props;
+
     return (
       <CacheProvider value={cache}>
         <ThemeProvider>

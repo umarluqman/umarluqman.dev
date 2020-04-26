@@ -44,8 +44,8 @@ const Home = (props) => {
         </Heading>
         <Box w="full" height={2}></Box>
         <Text color={textColor[colorMode]} fontFamily="Inter" lineHeight={1.8}>
-          I'm a front-end developer based in Malaysia 🇲🇾 with primary focus on
-          future maintability and business aspects{" "}
+          I'm a front-end developer, directed towards building solution with a
+          primary focus on future maintability and business aspects{" "}
           <StyledStrike>
             {" "}
             rather than feeding my own impulse of writing complex code to feel
@@ -59,9 +59,8 @@ const Home = (props) => {
           fontFamily="Inter"
           lineHeight={1.8}
         >
-          I prefer to write code expressively with minimal abstraction to avoid
-          hasty abstraction. I'm aware of the tradeoffs of both{" "}
-          <b>DRY (Don't repeat yourself)</b> and{" "}
+          I prefer to write code expressively with minimal abstraction. I'm
+          aware of the tradeoffs of both <b>DRY (Don't repeat yourself)</b> and{" "}
           <b>WET (Write everthing twice)</b> styles of coding.
         </Text>
       </Stack>

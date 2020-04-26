@@ -4,12 +4,20 @@ import Link from "next/link";
 import PropTypes from "prop-types";
 import Footer from "./Footer";
 import { Moon, Sun } from "react-feather";
+import { useRouter } from "next/router";
 
 const Page = ({ children }) => {
   const { colorMode, toggleColorMode } = useColorMode();
+  const router = useRouter();
 
   const bgColor = { light: "gray.50", dark: "gray.800" };
   const menuColor = { light: "black", dark: "white" };
+
+  const externalLink = new Set([
+    "/showcase/dashboard",
+    "/showcase/complex-form",
+    "/showcase/landing-page",
+  ]);
 
   return (
     <>
@@ -21,14 +29,31 @@ const Page = ({ children }) => {
         width="full"
         minHeight="92vh"
       >
+        {/* {!externalLink.has(router.pathname) && ( */}
         <Flex as="header" w="full" align="center" justify="center">
           {" "}
-          <Flex w={800} justify="flex-end" p={4}>
+          <Flex
+            w={800}
+            justify={{ base: "space-between", sm: "flex-end" }}
+            p={4}
+          >
+            <a href="https://showcase.umarluqman.dev">
+              <Button
+                variant="ghost"
+                color={menuColor[colorMode]}
+                fontWeight={400}
+                px={{ base: 2, sm: 4 }}
+              >
+                Showcase
+              </Button>
+            </a>
+
             <Link href="/">
               <Button
                 variant="ghost"
                 color={menuColor[colorMode]}
                 fontWeight={400}
+                px={{ base: 2, sm: 4 }}
               >
                 Home
               </Button>
@@ -38,6 +63,7 @@ const Page = ({ children }) => {
                 variant="ghost"
                 color={menuColor[colorMode]}
                 fontWeight={400}
+                px={{ base: 2, sm: 4 }}
               >
                 Blog
               </Button>
@@ -47,6 +73,7 @@ const Page = ({ children }) => {
               color={menuColor[colorMode]}
               isDisabled
               fontWeight={400}
+              px={{ base: 2, sm: 4 }}
             >
               Contact
             </Button>
@@ -64,6 +91,7 @@ const Page = ({ children }) => {
             ></IconButton>
           </Flex>
         </Flex>
+        {/* )} */}
         {children}
       </Flex>
       <Footer></Footer>

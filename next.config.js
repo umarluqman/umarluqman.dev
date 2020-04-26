@@ -8,10 +8,10 @@ const originalRequire = Module.prototype.require;
 
 // The following ensures that there is always only a single (and same)
 // copy of React in an app at any given moment.
-Module.prototype.require = function(modulePath) {
+Module.prototype.require = function (modulePath) {
   // Only redirect resolutions to non-relative and non-absolute modules
   if (
-    ["/react/", "/react-dom/", "/react-query/"].some(d => {
+    ["/react/", "/react-dom/", "/react-query/"].some((d) => {
       try {
         return require.resolve(modulePath).includes(d);
       } catch (err) {
@@ -30,7 +30,12 @@ Module.prototype.require = function(modulePath) {
 };
 
 module.exports = {
-  webpack: config => {
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
+    });
+
     config.resolve = {
       ...config.resolve,
       alias: {
@@ -40,9 +45,9 @@ module.exports = {
           path.resolve("node_modules"),
           "react-query"
         ),
-        "react-dom$": resolveFrom(path.resolve("node_modules"), "react-dom")
-      }
+        "react-dom$": resolveFrom(path.resolve("node_modules"), "react-dom"),
+      },
     };
     return config;
-  }
+  },
 };
