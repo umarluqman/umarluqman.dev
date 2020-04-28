@@ -66,17 +66,18 @@ const Page = ({ children }) => {
               }}
             ></IconButton>
           </Link>
-          <IconButton
-            icon={Mail}
-            variant="ghost"
-            isDisabled
-            css={{
-              svg: {
-                width: 18,
-                height: 18,
-              },
-            }}
-          ></IconButton>
+          <a href="mailto:contact@umarluqman.dev?Subject=Hello" target="_top">
+            <IconButton
+              icon={Mail}
+              variant="ghost"
+              css={{
+                svg: {
+                  width: 18,
+                  height: 18,
+                },
+              }}
+            ></IconButton>
+          </a>
         </Flex>
       </Flex>
     </Flex>
