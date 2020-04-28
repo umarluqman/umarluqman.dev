@@ -68,15 +68,16 @@ const Page = ({ children }) => {
                 Blog
               </Button>
             </Link>
-            <Button
-              variant="ghost"
-              color={menuColor[colorMode]}
-              isDisabled
-              fontWeight={400}
-              px={{ base: 2, sm: 4 }}
-            >
-              Contact
-            </Button>
+            <a href="mailto:contact@umarluqman.dev?Subject=Hello" target="_top">
+              <Button
+                variant="ghost"
+                color={menuColor[colorMode]}
+                fontWeight={400}
+                px={{ base: 2, sm: 4 }}
+              >
+                Contact
+              </Button>
+            </a>
             <IconButton
               icon={colorMode === "dark" ? Sun : Moon}
               onClick={toggleColorMode}
