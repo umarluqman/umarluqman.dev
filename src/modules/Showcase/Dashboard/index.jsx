@@ -13,6 +13,11 @@ import {
   theme,
   Divider,
   useDisclosure,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  Icon,
+  useColorMode,
 } from "@chakra-ui/core";
 import { jsx, css } from "@emotion/core";
 import { withTheme } from "emotion-theming";
@@ -22,6 +27,8 @@ import { Menu } from "react-feather";
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import dayjs from "dayjs";
+import Link from "next/link";
+
 const InvoiceTable = dynamic(import("./components/InvoiceTable"));
 
 const relativeTime = require("dayjs/plugin/relativeTime");
@@ -209,7 +216,7 @@ const ObviousCard = () => {
   );
 };
 const Index = () => {
-  const { lg, md: medium, xl, sm: small } = theme.breakpoints;
+  const { md: medium, sm: small } = theme.breakpoints;
 
   const md = useMedia(`(min-width: ${medium})`);
   const sm = useMedia(`(min-width: ${small})`);
@@ -222,167 +229,206 @@ const Index = () => {
     setActive(menu);
   };
 
+  const { colorMode } = useColorMode();
+
+  const textColor = { light: "gray.700", dark: "gray.200" };
+
   return (
-    <Flex align="center" minHeight="100vh" direction="column" bg="gray.100">
-      <Flex
-        justify="space-between"
-        w="100%"
-        p={4}
-        pb={!isOpen ? 4 : 0}
-        align="center"
+    <>
+      <Breadcrumb
+        color={textColor[colorMode]}
+        spacing="8px"
+        separator={<Icon color="gray.500" name="chevron-right" />}
+        m={6}
       >
-        <Box w={256}></Box>
-        {md ? (
-          <>
-            <Grid templateColumns="1fr 1fr 1fr 1fr" gap={8}>
-              <MenuButton>Dashboard</MenuButton>
-              <MenuButton>Invoices</MenuButton>
-              <MenuButton>Clients</MenuButton>
-              <MenuButton>Expenses</MenuButton>
-            </Grid>
+        <BreadcrumbItem>
+          <Link href="/showcase">
+            <BreadcrumbLink>Showcase</BreadcrumbLink>
+          </Link>
+        </BreadcrumbItem>
+        <BreadcrumbItem>
+          <Link href="/showcase/design-to-code">
+            <BreadcrumbLink>Design to code</BreadcrumbLink>
+          </Link>
+        </BreadcrumbItem>
+
+        <BreadcrumbItem isCurrentPage>
+          <BreadcrumbLink fontWeight={600}>Complex Form</BreadcrumbLink>
+        </BreadcrumbItem>
+      </Breadcrumb>
+      <Flex
+        align="center"
+        minHeight="100vh"
+        w="full"
+        direction="column"
+        bg="gray.100"
+      >
+        <Flex
+          justify="space-between"
+          w="100%"
+          p={4}
+          pb={!isOpen ? 4 : 0}
+          align="center"
+        >
+          <Box w={256}></Box>
+          {md ? (
+            <>
+              <Grid templateColumns="1fr 1fr 1fr 1fr" gap={8}>
+                <MenuButton>Dashboard</MenuButton>
+                <MenuButton>Invoices</MenuButton>
+                <MenuButton>Clients</MenuButton>
+                <MenuButton>Expenses</MenuButton>
+              </Grid>
+              <Flex align="center">
+                <Button
+                  color="white"
+                  bg="blue.600"
+                  leftIcon="add"
+                  borderRadius={999}
+                  py={3}
+                  px={6}
+                  mr={8}
+                  _hover={{
+                    bg: "blue.700",
+                    transition: "0.3s",
+                  }}
+                  _active={{
+                    bg: "blue.800",
+                  }}
+                  fontWeight={400}
+                >
+                  New Invoice
+                </Button>
+                <Avatar
+                  mr={4}
+                  src="https://source.unsplash.com/random/50x50"
+                  alt="random-image-from-unsplash"
+                ></Avatar>
+              </Flex>
+            </>
+          ) : (
+            <Menu
+              color={theme.colors.blue[800]}
+              size={32}
+              onClick={isOpen ? onClose : onOpen}
+              css={{
+                "&:hover": {
+                  cursor: "pointer",
+                },
+              }}
+            ></Menu>
+          )}
+        </Flex>
+        {isOpen && (
+          <Flex width="100%" direction="column" p={3} borderRadius={4}>
+            <MenuButtonMobile
+              onClick={onNav("dashboard")}
+              active={active === "dashboard"}
+            >
+              Dashboard
+            </MenuButtonMobile>
+            <MenuButtonMobile
+              onClick={onNav("invoices")}
+              active={active === "invoices"}
+            >
+              Invoices
+            </MenuButtonMobile>
+            <MenuButtonMobile
+              onClick={onNav("clients")}
+              active={active === "clients"}
+            >
+              Clients
+            </MenuButtonMobile>
+            <MenuButtonMobile
+              onClick={onNav("expenses")}
+              active={active === "expenses"}
+            >
+              Expenses
+            </MenuButtonMobile>
+            <Button
+              m={4}
+              color="white"
+              bg="blue.600"
+              leftIcon="add"
+              borderRadius={999}
+              py={3}
+              px={3}
+              _hover={{
+                bg: "blue.700",
+                transition: "0.3s",
+              }}
+              _active={{
+                bg: "blue.800",
+              }}
+              fontWeight={500}
+              fontSize="14px"
+              w="160px"
+            >
+              New Invoice
+            </Button>
+            <Divider></Divider>
             <Flex align="center">
-              <Button
-                color="white"
-                bg="blue.600"
-                leftIcon="add"
-                borderRadius={999}
-                py={3}
-                px={6}
-                mr={8}
-                _hover={{
-                  bg: "blue.700",
-                  transition: "0.3s",
-                }}
-                _active={{
-                  bg: "blue.800",
-                }}
-                fontWeight={400}
-              >
-                New Invoice
-              </Button>
               <Avatar
-                mr={4}
+                mx={4}
                 src="https://source.unsplash.com/random/50x50"
                 alt="random-image-from-unsplash"
               ></Avatar>
+              <Box p={2}>
+                <Text color="blue.800" fontWeight={500}>
+                  Umar Luqman
+                </Text>
+                <Text color="gray.500">umarluqman.78@gmail.com</Text>
+              </Box>
             </Flex>
-          </>
-        ) : (
-          <Menu
-            color={theme.colors.blue[800]}
-            size={32}
-            onClick={isOpen ? onClose : onOpen}
-            css={{
-              "&:hover": {
-                cursor: "pointer",
-              },
-            }}
-          ></Menu>
-        )}
-      </Flex>
-      {isOpen && (
-        <Flex width="100%" direction="column" p={3} borderRadius={4}>
-          <MenuButtonMobile
-            onClick={onNav("dashboard")}
-            active={active === "dashboard"}
-          >
-            Dashboard
-          </MenuButtonMobile>
-          <MenuButtonMobile
-            onClick={onNav("invoices")}
-            active={active === "invoices"}
-          >
-            Invoices
-          </MenuButtonMobile>
-          <MenuButtonMobile
-            onClick={onNav("clients")}
-            active={active === "clients"}
-          >
-            Clients
-          </MenuButtonMobile>
-          <MenuButtonMobile
-            onClick={onNav("expenses")}
-            active={active === "expenses"}
-          >
-            Expenses
-          </MenuButtonMobile>
-          <Button
-            m={4}
-            color="white"
-            bg="blue.600"
-            leftIcon="add"
-            borderRadius={999}
-            py={3}
-            px={3}
-            _hover={{
-              bg: "blue.700",
-              transition: "0.3s",
-            }}
-            _active={{
-              bg: "blue.800",
-            }}
-            fontWeight={500}
-            fontSize="14px"
-            w="160px"
-          >
-            New Invoice
-          </Button>
-          <Divider></Divider>
-          <Flex align="center">
-            <Avatar
-              mr={4}
-              src="https://source.unsplash.com/random/50x50"
-              alt="random-image-from-unsplash"
-            ></Avatar>
-            <Box>
-              <Text color="blue.800" fontWeight={500}>
-                Umar Luqman
-              </Text>
-              <Text color="gray.500">umarluqman.78@gmail.com</Text>
-            </Box>
           </Flex>
+        )}
+        <Flex
+          justify="center"
+          w="100%"
+          p={6}
+          align="center"
+          bg="blue.600"
+          mb={6}
+          transition="0.3"
+        >
+          <Box width={1054}>
+            <Grid
+              templateColumns="repeat(auto-fit, minmax(240px, 1fr))"
+              gap={6}
+            >
+              <SubtleCard label="overdue"></SubtleCard>
+              {!sm && <Divider borderColor="blue.500" my={0}></Divider>}
+              <SubtleCard label="in draft"></SubtleCard>
+              {!sm && <Divider borderColor="blue.500" my={0}></Divider>}
+              <SubtleCard label="total outstanding"></SubtleCard>
+            </Grid>
+          </Box>
         </Flex>
-      )}
-      <Flex
-        justify="center"
-        w="100%"
-        p={6}
-        align="center"
-        bg="blue.600"
-        mb={6}
-        transition="0.3"
-      >
-        <Box width={1054}>
-          <Grid templateColumns="repeat(auto-fit, minmax(240px, 1fr))" gap={6}>
-            <SubtleCard label="overdue"></SubtleCard>
-            {!sm && <Divider borderColor="blue.500" my={0}></Divider>}
-            <SubtleCard label="in draft"></SubtleCard>
-            {!sm && <Divider borderColor="blue.500" my={0}></Divider>}
-            <SubtleCard label="total outstanding"></SubtleCard>
-          </Grid>
-        </Box>
+        <Flex justify="center" w="100%" p={6} align="center" mb={6}>
+          <Box width={1054}>
+            <Text fontSize="2xl" letterSpacing={1} py={4} color="blue.800">
+              Recent Invoices
+            </Text>
+            <Grid
+              templateColumns="repeat(auto-fit, minmax(280px, 1fr))"
+              gap={6}
+            >
+              <ObviousCard></ObviousCard>
+              <ObviousCard></ObviousCard>
+              <ObviousCard></ObviousCard>
+            </Grid>
+          </Box>
+        </Flex>
+        <Flex width="100%" mb={16} p={6} justify="center" align="flex-start">
+          <Box width={1054}>
+            <Text fontSize="2xl" letterSpacing={1} py={4} color="blue.800">
+              All Invoices
+            </Text>
+            <InvoiceTable />
+          </Box>
+        </Flex>
       </Flex>
-      <Flex justify="center" w="100%" p={6} align="center" mb={6}>
-        <Box width={1054}>
-          <Text fontSize="2xl" letterSpacing={1} py={4} color="blue.800">
-            Recent Invoices
-          </Text>
-          <Grid templateColumns="repeat(auto-fit, minmax(280px, 1fr))" gap={6}>
-            <ObviousCard></ObviousCard>
-            <ObviousCard></ObviousCard>
-            <ObviousCard></ObviousCard>
-          </Grid>
-        </Box>
-      </Flex>
-      <Flex width="100%" mb={16} p={6} justify="center" align="flex-start">
-        <Box width={1054}>
-          <Text fontSize="2xl" letterSpacing={1} py={4} color="blue.800">
-            All Invoices
-          </Text>
-          <InvoiceTable />
-        </Box>
-      </Flex>
-    </Flex>
+    </>
   );
 };
 

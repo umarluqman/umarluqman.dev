@@ -11,6 +11,11 @@ import {
   Button,
   Grid,
   SimpleGrid,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  Icon,
+  useColorMode,
 } from "@chakra-ui/core";
 import Logo from "../../../../public/static/tuple-logo.svg";
 import CommandLine from "../../../../public/static/icon-command-line.svg";
@@ -20,11 +25,15 @@ import Control from "../../../../public/static/icon-control.svg";
 import { jsx } from "@emotion/core";
 import useMedia from "use-media";
 import { useState } from "react";
+import Link from "next/link";
 
 const Index = () => {
   const xs = useMedia({ minWidth: "40em" });
 
   const [email, setEmail] = useState("");
+  const { colorMode } = useColorMode();
+
+  const textColor = { light: "gray.700", dark: "gray.200" };
 
   const handleEmail = (e) => {
     setEmail(e.target.event);
@@ -32,6 +41,27 @@ const Index = () => {
 
   return (
     <Box>
+      <Breadcrumb
+        color={textColor[colorMode]}
+        spacing="8px"
+        separator={<Icon color="gray.500" name="chevron-right" />}
+        m={6}
+      >
+        <BreadcrumbItem>
+          <Link href="/showcase">
+            <BreadcrumbLink>Showcase</BreadcrumbLink>
+          </Link>
+        </BreadcrumbItem>
+        <BreadcrumbItem>
+          <Link href="/showcase/design-to-code">
+            <BreadcrumbLink>Design to code</BreadcrumbLink>
+          </Link>
+        </BreadcrumbItem>
+
+        <BreadcrumbItem isCurrentPage>
+          <BreadcrumbLink fontWeight={600}>Landing page</BreadcrumbLink>
+        </BreadcrumbItem>
+      </Breadcrumb>
       <Flex
         fullWidth
         background="transparent linear-gradient(180deg, #FFFFFF 0%, #F4F6F9 100%)"

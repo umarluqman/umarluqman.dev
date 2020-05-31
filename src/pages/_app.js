@@ -27,7 +27,7 @@ export default class App extends NextApp {
               }
             `}
           ></Global>
-          <ColorModeProvider value="dark">
+          <ColorModeProvider value="light">
             <DefaultSeo {...SEO} />
             <Page>
               <Component {...pageProps} />

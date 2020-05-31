@@ -8,16 +8,14 @@ import {
   Button,
   useColorMode,
 } from "@chakra-ui/core";
-import { jsx, css } from "@emotion/core";
+import { jsx } from "@emotion/core";
 import Card from "../../components/Card";
 
 const Showcase = () => {
   const { colorMode } = useColorMode();
 
-  const smallTextcolor = { light: "gray.700", dark: "gray.200" };
   const textColor = { light: "gray.700", dark: "gray.200" };
   const headingColor = { light: "black", dark: "white" };
-  const showcaseColor = { light: "black", dark: "#16bdca" };
   return (
     <Flex direction="column" minHeight="100vh" w="100%" align="center" p={8}>
       <Box maxWidth={800} mb={12}>
@@ -38,29 +36,30 @@ const Showcase = () => {
           </Text>
           <Flex color="gray.700" align="baseline" color={textColor[colorMode]}>
             <Text>
-              For professional experiences, check out my
-              <a href="https://www.linkedin.com/in/umarluqman/">
-                <Button
-                  variant="ghost"
-                  verticalAlign="unset"
-                  rightIcon="external-link"
-                  color={textColor[colorMode]}
-                >
-                  LinkedIn
-                </Button>
-              </a>
+              For professional experiences, check out my{" "}
+              <Button
+                variant="ghost"
+                verticalAlign="unset"
+                rightIcon="external-link"
+                color={textColor[colorMode]}
+                variant="link"
+                as={"a"}
+                href="https://www.linkedin.com/in/umarluqman/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </Button>
             </Text>
           </Flex>
           <Box h={8}></Box>
 
-          <Grid
-            templateColumns="repeat(auto-fit, minmax(200px, 360px))"
-            gap={8}
-          >
+          <Grid templateColumns="repeat(auto-fit, minmax(200px, 1fr))" gap={8}>
             <Card
               title={"Design to Code Series"}
-              subtitle="Collection of user interfaces made up with ReactJS & 👩🏻‍🎤 Emotion (CSS-in-JS). Most of design elements are inspired by Refactoring UI book"
-              pathname="/showcase"
+              subtitle="Collection of one-page user interfaces made up with React JS & 👩🏻‍🎤 Emotion
+              (CSS-in-JS). Recreated it again for learning purpose."
+              pathname="/showcase/design-to-code"
             ></Card>
             <Card
               title={"Grid Image Gallery with Animation"}
