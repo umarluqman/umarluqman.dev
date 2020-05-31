@@ -35,9 +35,9 @@ const Page = ({ children }) => {
             </Button>
           </Link>{" "}
           & hosted in{" "}
-          <Link href="https://zeit.co" isExternal>
+          <Link href="https://vercel.com" isExternal>
             <Button p={2} variant="link" variantColor="black">
-              Now
+              Vercel
             </Button>
           </Link>{" "}
         </Flex>
