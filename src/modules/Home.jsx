@@ -12,6 +12,7 @@ import {
 import PropTypes from "prop-types";
 import Link from "next/link";
 import styled from "@emotion/styled";
+import Router from "next/router";
 
 const Home = (props) => {
   const { colorMode } = useColorMode();
@@ -36,6 +37,11 @@ const Home = (props) => {
       background-size: 100% 1px;
     }
   `;
+
+  const handleNavShowcase = () => {
+    return Router.push("/showcase");
+  };
+
   return (
     <Box maxWidth={700} w="full" as="main">
       <Stack spacing={3} p={8}>
@@ -81,16 +87,15 @@ const Home = (props) => {
           lineHeight={1.8}
         >
           Find my works at{" "}
-          <a href="https://showcase.umarluqman.dev">
-            <Button
-              variant="link"
-              verticalAlign="unset"
-              color={showcaseColor[colorMode]}
-              rightIcon="external-link"
-            >
-              Showcase
-            </Button>
-          </a>
+          <Button
+            variant="link"
+            verticalAlign="unset"
+            color={showcaseColor[colorMode]}
+            rightIcon="external-link"
+            onClick={handleNavShowcase}
+          >
+            Showcase
+          </Button>
         </Text>
       </Stack>
     </Box>

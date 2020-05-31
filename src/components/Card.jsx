@@ -12,7 +12,7 @@ import { ChevronRight } from "react-feather";
 import { jsx } from "@emotion/core";
 import Router from "next/router";
 
-const Card = ({ title, subtitle, pathname }) => {
+const Card = ({ title, subtitle, pathname, children }) => {
   const { colorMode } = useColorMode();
   const textColor = { light: "gray.700", dark: "gray.200" };
   const backgroundColor = { light: "white", dark: "gray.700" };
@@ -51,7 +51,7 @@ const Card = ({ title, subtitle, pathname }) => {
           </Heading>
         </Flex>
         <Text color={textColor[colorMode]} lineHeight="tall">
-          {subtitle}
+          {subtitle || children}
         </Text>
       </Box>
     </Flex>
