@@ -1,95 +1,82 @@
 /** @jsx jsx */
-import { Flex, Text, Button, Link, Box, theme } from "@chakra-ui/core";
-import { jsx } from "@emotion/core";
+import {
+  Box,
+  Flex,
+  Grid,
+  Heading,
+  Text,
+  Button,
+  useColorMode,
+} from "@chakra-ui/core";
+import { jsx, css } from "@emotion/core";
+import Card from "../../components/Card";
 
-const Index = () => {
+const Showcase = () => {
+  const { colorMode } = useColorMode();
+
+  const smallTextcolor = { light: "gray.700", dark: "gray.200" };
+  const textColor = { light: "gray.700", dark: "gray.200" };
+  const headingColor = { light: "black", dark: "white" };
+  const showcaseColor = { light: "black", dark: "#16bdca" };
   return (
-    <Flex
-      direction="column"
-      minHeight="100vh"
-      w="100%"
-      align="center"
-      bg="rgb(37, 47, 63)"
-      p={4}
-      pt={10}
-    >
-      <Box w={700}>
-        <Text fontSize="3xl" fontWeight={600} color="white" pb={2}>
-          {" "}
-          Showcase
-        </Text>
-
-        <Text color="white" lineHeight={1.8}>
-          Collection of user interfaces made up with ReactJS & 👩🏻‍🎤 Emotion (CSS
-          in JS). They are inspired by the{" "}
-          <Button
-            variant="link"
-            href="https://refactoringui.com/book/"
-            isExternal
-            rightIcon="external-link"
-            verticalAlign="unset"
-            color="#16bdca"
+    <Flex direction="column" minHeight="100vh" w="100%" align="center" p={8}>
+      <Box maxWidth={800} mb={12}>
+        <Box w="full">
+          <Heading
+            fontSize="5xl"
+            pb={6}
+            letterSpacing="tight"
+            color={headingColor[colorMode]}
           >
-            Refactoring UI book
-          </Button>
-        </Text>
-        <Box h={4}></Box>
-        <Text color="white">
-          All source code is avaibale on{" "}
-          <Button
-            variant="link"
-            href="https://refactoringui.com/book/"
-            isExternal
-            verticalAlign="unset"
-            color={theme.colors.gray[200]}
-            rightIcon="external-link"
-          >
-            GitHub
-          </Button>
-        </Text>
-        <Flex justify="center">
-          <Flex w={500} justify="space-around" mt={8} flexWrap="wrap">
-            <Link href="/showcase/dashboard">
-              <Button
-                variant="ghost"
-                color={theme.colors.gray[200]}
-                _hover={{
-                  backgroundColor: theme.colors.gray[600],
-                }}
-                fontWeight={400}
-              >
-                Dashboard
-              </Button>
-            </Link>
-            <Link href="/showcase/landing-page">
-              <Button
-                variant="ghost"
-                color={theme.colors.gray[200]}
-                _hover={{
-                  backgroundColor: theme.colors.gray[600],
-                }}
-                fontWeight={400}
-              >
-                Landing Page
-              </Button>
-            </Link>
-            <Link href="/showcase/complex-form">
-              <Button
-                variant="ghost"
-                color={theme.colors.gray[200]}
-                _hover={{
-                  backgroundColor: theme.colors.gray[600],
-                }}
-                fontWeight={400}
-              >
-                Complex Form
-              </Button>
-            </Link>
+            {" "}
+            Showcase
+          </Heading>
+          <Text mb={3} color={textColor[colorMode]} lineHeight="taller">
+            Collection of my side projects outside of my professional career.
+            Driven by curiosity, this is where I explored new stuff and built
+            upon it.
+          </Text>
+          <Flex color="gray.700" align="baseline" color={textColor[colorMode]}>
+            <Text>
+              For professional experiences, check out my
+              <a href="https://www.linkedin.com/in/umarluqman/">
+                <Button
+                  variant="ghost"
+                  verticalAlign="unset"
+                  rightIcon="external-link"
+                  color={textColor[colorMode]}
+                >
+                  LinkedIn
+                </Button>
+              </a>
+            </Text>
           </Flex>
-        </Flex>
+          <Box h={8}></Box>
+
+          <Grid
+            templateColumns="repeat(auto-fit, minmax(200px, 360px))"
+            gap={8}
+          >
+            <Card
+              title={"Design to Code Series"}
+              subtitle="Collection of user interfaces made up with ReactJS & 👩🏻‍🎤 Emotion (CSS-in-JS). Most of design elements are inspired by Refactoring UI book"
+              pathname="/showcase"
+            ></Card>
+            <Card
+              title={"Grid Image Gallery with Animation"}
+              subtitle="Image gallery in a grid with a smooth hover transition."
+              pathname="/showcase/grid-gallery"
+            ></Card>
+          </Grid>
+          <Flex justify="center" my={10}>
+            <Text mb={3} color={textColor[colorMode]} fontWeight={300}>
+              This page is still in progress, more are coming.
+            </Text>
+          </Flex>
+        </Box>
       </Box>
     </Flex>
   );
 };
 
-export default Index;
+export default Showcase;

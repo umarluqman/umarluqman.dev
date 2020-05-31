@@ -43,17 +43,20 @@ const Home = (props) => {
           as="h1"
           size="2xl"
           fontWeight="700"
-          // mt={8}
-          // mb={10}
           color={headingColor[colorMode]}
-          letterSpacing="-0.025em"
+          letterSpacing="tight"
         >
           Hey, I'm Umar Luqman
         </Heading>
         <Box w="full" height={2}></Box>
-        <Text color={textColor[colorMode]} fontFamily="Inter" lineHeight={1.8}>
-          I'm a front-end developer, directed towards building solution with a
-          primary focus on future maintability and business aspects{" "}
+        <Text
+          color={textColor[colorMode]}
+          fontFamily="Inter"
+          lineHeight="taller"
+        >
+          I'm a front-end developer living in Malaysia, directed towards
+          building solution with a primary focus on future maintability and
+          business aspects{" "}
           <StyledStrike>
             {" "}
             rather than feeding my own impulse of writing complex code to feel

@@ -37,7 +37,7 @@ const Page = ({ children }) => {
             justify={{ base: "space-between", sm: "flex-end" }}
             p={4}
           >
-            <a href="https://showcase.umarluqman.dev">
+            <Link href="/showcase">
               <Button
                 variant="ghost"
                 color={menuColor[colorMode]}
@@ -46,7 +46,7 @@ const Page = ({ children }) => {
               >
                 Showcase
               </Button>
-            </a>
+            </Link>
 
             <Link href="/">
               <Button
