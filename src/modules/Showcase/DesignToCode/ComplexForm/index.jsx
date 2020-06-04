@@ -49,7 +49,7 @@ const Form = () => {
         color={textColor[colorMode]}
         spacing="8px"
         separator={<Icon color="gray.500" name="chevron-right" />}
-        m={6}
+        my={6}
       >
         <BreadcrumbItem>
           <Link href="/showcase">

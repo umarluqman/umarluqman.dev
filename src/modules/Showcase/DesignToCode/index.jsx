@@ -13,8 +13,8 @@ import {
   Icon,
 } from "@chakra-ui/core";
 import { jsx } from "@emotion/core";
-import Card from "../../components/Card";
-import DesignToCodeText from "../../components/DesignToCodeText";
+import Card from "../../../components/Card";
+import DesignToCodeText from "../../../components/DesignToCodeText";
 import Link from "next/link";
 
 const Showcase = () => {

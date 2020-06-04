@@ -1,3 +1,3 @@
-import Showcase from "../../modules/Showcase/LandingPage";
+import Showcase from "../../modules/Showcase/DesignToCode/LandingPage";
 
 export default Showcase;

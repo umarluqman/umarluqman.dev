@@ -12,8 +12,8 @@ import {
 import { jsx, css } from "@emotion/core";
 import { withTheme } from "emotion-theming";
 import React from "react";
-import makeData from "../../../../utils/makeData";
-import Table from "../../../../components/Table";
+import makeData from "../../../../../utils/makeData";
+import Table from "../../../../../components/Table";
 
 import useMedia from "use-media";
 

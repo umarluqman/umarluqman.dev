@@ -1,9 +1,31 @@
 /**@jsx jsx */
-import { Box, Grid, Image, Text } from "@chakra-ui/core";
+import { Box, Grid, Image, Text, Flex, Stack } from "@chakra-ui/core";
 import { jsx } from "@emotion/core";
 import { useState, useEffect } from "react";
 
 export default function Post() {
+  if (true) {
+    return (
+      <Flex
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        // backgroundColor={bgColor[colorMode]}
+        pb={80}
+        width="full"
+      >
+        <Box maxWidth={700} w="full" as="main">
+          <Stack spacing={3} p={8}>
+            <Text
+            // color={textColor[colorMode]}
+            >
+              Work in progress 🚧
+            </Text>
+          </Stack>
+        </Box>
+      </Flex>
+    );
+  }
   return (
     <Box width="full">
       <Grid templateColumns="repeat(auto-fit, minmax(380px, 1fr))" gap={6}>
