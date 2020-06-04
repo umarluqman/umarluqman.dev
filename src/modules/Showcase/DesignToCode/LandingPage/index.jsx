@@ -17,11 +17,11 @@ import {
   Icon,
   useColorMode,
 } from "@chakra-ui/core";
-import Logo from "../../../../public/static/tuple-logo.svg";
-import CommandLine from "../../../../public/static/icon-command-line.svg";
-import Plugin from "../../../../public/static/icon-plugin.svg";
-import Latency from "../../../../public/static/icon-latency.svg";
-import Control from "../../../../public/static/icon-control.svg";
+import Logo from "../../../../../public/static/tuple-logo.svg";
+import CommandLine from "../../../../../public/static/icon-command-line.svg";
+import Plugin from "../../../../../public/static/icon-plugin.svg";
+import Latency from "../../../../../public/static/icon-latency.svg";
+import Control from "../../../../../public/static/icon-control.svg";
 import { jsx } from "@emotion/core";
 import useMedia from "use-media";
 import { useState } from "react";
@@ -45,7 +45,7 @@ const Index = () => {
         color={textColor[colorMode]}
         spacing="8px"
         separator={<Icon color="gray.500" name="chevron-right" />}
-        m={6}
+        my={6}
       >
         <BreadcrumbItem>
           <Link href="/showcase">

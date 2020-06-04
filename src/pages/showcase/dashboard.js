@@ -1,3 +1,3 @@
-import Showcase from "../../modules/Showcase/Dashboard";
+import Showcase from "../../modules/Showcase/DesignToCode/Dashboard";
 
 export default Showcase;

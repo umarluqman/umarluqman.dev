@@ -38,6 +38,8 @@ const Card = ({ title, subtitle, pathname, children }) => {
         },
       }}
       onClick={handleClick}
+      as="button"
+      textAlign="left"
     >
       <Box>
         <Flex align="baseline">
