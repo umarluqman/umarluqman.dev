@@ -1,26 +1,35 @@
 /**@jsx jsx */
-import { Box, Grid, Image, Text, Flex, Stack } from "@chakra-ui/core";
+import {
+  Box,
+  Grid,
+  Image,
+  Text,
+  Flex,
+  Stack,
+  useColorMode,
+} from "@chakra-ui/core";
 import { jsx } from "@emotion/core";
 import { useState, useEffect } from "react";
 
 export default function Post() {
+  const { colorMode } = useColorMode();
+
+  const textColor = { light: "gray.700", dark: "gray.200" };
+  const bgColor = { light: "gray.50", dark: "gray.800" };
+
   if (true) {
     return (
       <Flex
         display="flex"
         flexDirection="column"
         alignItems="center"
-        // backgroundColor={bgColor[colorMode]}
+        backgroundColor={bgColor[colorMode]}
         pb={80}
         width="full"
       >
         <Box maxWidth={700} w="full" as="main">
           <Stack spacing={3} p={8}>
-            <Text
-            // color={textColor[colorMode]}
-            >
-              Work in progress 🚧
-            </Text>
+            <Text color={textColor[colorMode]}>Work in progress 🚧</Text>
           </Stack>
         </Box>
       </Flex>

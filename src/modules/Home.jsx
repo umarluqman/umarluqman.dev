@@ -43,7 +43,7 @@ const Home = (props) => {
   };
 
   return (
-    <Box maxWidth={700} w="full" as="main">
+    <Box maxWidth={"54rem"} w="full" as="main">
       <Stack spacing={3} p={8}>
         <Heading
           as="h1"
