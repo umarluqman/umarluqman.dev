@@ -7,8 +7,8 @@ const DesignToCodeDesc = () => {
   return (
     <Text mb={3} color={textColor[colorMode]} lineHeight="taller">
       Collection of one page user interfaces made up with React JS & 👩🏻‍🎤 Emotion
-      (CSS-in-JS). I just recreated it again for learning purpose. Most of
-      designs will be found in{" "}
+      (CSS-in-JS). I recreated it again for learning purpose. Most of designs
+      will be found in{" "}
       <Button
         as="a"
         href="https://www.refactoringui.com"
@@ -20,7 +20,6 @@ const DesignToCodeDesc = () => {
       >
         Refactoring UI book
       </Button>
-      .
     </Text>
   );
 };

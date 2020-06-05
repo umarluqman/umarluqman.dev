@@ -58,7 +58,7 @@ const Showcase = () => {
             <Card
               title={"Design to Code Series"}
               subtitle="Collection of one-page user interfaces made up with React JS & 👩🏻‍🎤 Emotion
-              (CSS-in-JS). Recreated it again for learning purpose."
+              (CSS-in-JS)"
               pathname="/showcase/design-to-code"
             ></Card>
             <Card
