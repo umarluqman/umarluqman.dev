@@ -234,12 +234,13 @@ const Index = () => {
   const textColor = { light: "gray.700", dark: "gray.200" };
 
   return (
-    <>
+    <Box>
       <Breadcrumb
         color={textColor[colorMode]}
         spacing="8px"
         separator={<Icon color="gray.500" name="chevron-right" />}
         my={6}
+        px={{ base: 6, md: 0 }}
       >
         <BreadcrumbItem>
           <Link href="/showcase">
@@ -428,7 +429,7 @@ const Index = () => {
           </Box>
         </Flex>
       </Flex>
-    </>
+    </Box>
   );
 };
 

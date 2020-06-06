@@ -31,13 +31,13 @@ const Showcase = () => {
       p={8}
       pt={0}
     >
-      <Box maxWidth={800} mb={12}>
+      <Box w={800} maxW="full">
         <Breadcrumb
           spacing="8px"
           separator={<Icon color="gray.500" name="chevron-right" />}
-          py={1}
-          px={2}
           color={textColor[colorMode]}
+          pt={2}
+          pb={3}
         >
           <BreadcrumbItem>
             <Link href="/showcase">
@@ -49,6 +49,8 @@ const Showcase = () => {
             <BreadcrumbLink fontWeight={600}>Design to code</BreadcrumbLink>
           </BreadcrumbItem>
         </Breadcrumb>
+      </Box>
+      <Box maxWidth={800} mb={12}>
         <Box w="full">
           <Heading
             fontSize="5xl"
@@ -88,7 +90,7 @@ const Showcase = () => {
             </Card>
             <Card
               title={"Complex Form"}
-              subtitle="Image gallery in a grid with a smooth hover transition."
+              subtitle="Common long form with various input fileds"
               pathname="/showcase/complex-form"
               stackList={["Chakra UI", "Formik"]}
             ></Card>
