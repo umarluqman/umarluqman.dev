@@ -50,6 +50,7 @@ const Form = () => {
         spacing="8px"
         separator={<Icon color="gray.500" name="chevron-right" />}
         my={6}
+        px={{ base: 6, md: 0 }}
       >
         <BreadcrumbItem>
           <Link href="/showcase">
