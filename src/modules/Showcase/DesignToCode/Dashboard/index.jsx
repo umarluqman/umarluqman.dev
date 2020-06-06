@@ -234,29 +234,31 @@ const Index = () => {
   const textColor = { light: "gray.700", dark: "gray.200" };
 
   return (
-    <Box>
-      <Breadcrumb
-        color={textColor[colorMode]}
-        spacing="8px"
-        separator={<Icon color="gray.500" name="chevron-right" />}
-        my={6}
-        px={{ base: 6, md: 0 }}
-      >
-        <BreadcrumbItem>
-          <Link href="/showcase">
-            <BreadcrumbLink>Showcase</BreadcrumbLink>
-          </Link>
-        </BreadcrumbItem>
-        <BreadcrumbItem>
-          <Link href="/showcase/design-to-code">
-            <BreadcrumbLink>Design to code</BreadcrumbLink>
-          </Link>
-        </BreadcrumbItem>
+    <Flex w="full" align="center" direction="column">
+      <Box w={"full"} maxW={900}>
+        <Breadcrumb
+          color={textColor[colorMode]}
+          spacing="8px"
+          separator={<Icon color="gray.500" name="chevron-right" />}
+          my={6}
+          px={{ base: 6, md: 0 }}
+        >
+          <BreadcrumbItem>
+            <Link href="/showcase">
+              <BreadcrumbLink>Showcase</BreadcrumbLink>
+            </Link>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <Link href="/showcase/design-to-code">
+              <BreadcrumbLink>Design to code</BreadcrumbLink>
+            </Link>
+          </BreadcrumbItem>
 
-        <BreadcrumbItem isCurrentPage>
-          <BreadcrumbLink fontWeight={600}>Complex Form</BreadcrumbLink>
-        </BreadcrumbItem>
-      </Breadcrumb>
+          <BreadcrumbItem isCurrentPage>
+            <BreadcrumbLink fontWeight={600}>Complex Form</BreadcrumbLink>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </Box>
       <Flex
         align="center"
         minHeight="100vh"
@@ -429,7 +431,7 @@ const Index = () => {
           </Box>
         </Flex>
       </Flex>
-    </Box>
+    </Flex>
   );
 };
 
