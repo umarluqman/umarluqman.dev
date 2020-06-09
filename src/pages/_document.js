@@ -1,4 +1,4 @@
-import Document, { Head, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 import { extractCritical } from "emotion-server";
 
 export default class MyDocument extends Document {
@@ -11,7 +11,7 @@ export default class MyDocument extends Document {
   render() {
     const GA_TRACKING_ID = "UA-164939980-1";
     return (
-      <html lang="en">
+      <Html lang="en">
         <Head>
           <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
           <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -76,7 +76,7 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }
