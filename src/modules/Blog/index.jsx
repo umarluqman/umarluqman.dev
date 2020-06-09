@@ -11,8 +11,10 @@ import {
   useColorMode,
 } from "@chakra-ui/core";
 import PropTypes from "prop-types";
+import { getAllPosts } from "./fetcher";
 
-const Home = (props) => {
+export default function Blog(props) {
+  console.log("props", props);
   const { colorMode } = useColorMode();
 
   const bgColor = { light: "gray.50", dark: "gray.800" };
@@ -34,8 +36,14 @@ const Home = (props) => {
       </Box>
     </Flex>
   );
-};
+}
 
-Home.propTypes = {};
+Blog.propTypes = {};
 
-export default Home;
+export async function getStaticProps({ preview = false, previewData }) {
+  console.log("ha");
+  const allPosts = await getAllPosts(previewData);
+  return {
+    props: { preview, allPosts },
+  };
+}
