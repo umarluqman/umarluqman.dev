@@ -30,13 +30,13 @@ const Page = ({ children }) => {
         <Flex align="center" color={textColor[colorMode]}>
           Built with{" "}
           <Link href="https://nextjs.org/" isExternal>
-            <Button p={2} variant="link" variantColor="black">
+            <Button p={2} variant="link" color={textColor[colorMode]}>
               Next
             </Button>
           </Link>{" "}
           & hosted in{" "}
           <Link href="https://vercel.com" isExternal>
-            <Button p={2} variant="link" variantColor="black">
+            <Button p={2} variant="link" color={textColor[colorMode]}>
               Vercel
             </Button>
           </Link>{" "}
