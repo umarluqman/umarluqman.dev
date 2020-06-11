@@ -1,23 +1,13 @@
 import React, { memo } from "react";
 import { Flex, Button, IconButton, useColorMode } from "@chakra-ui/core";
 import Link from "next/link";
-import PropTypes from "prop-types";
 import Footer from "./Footer";
 import { Moon, Sun } from "react-feather";
-import { useRouter } from "next/router";
 
 const Page = ({ children }) => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const router = useRouter();
-
   const bgColor = { light: "gray.50", dark: "gray.800" };
   const menuColor = { light: "black", dark: "white" };
-
-  const externalLink = new Set([
-    "/showcase/dashboard",
-    "/showcase/complex-form",
-    "/showcase/landing-page",
-  ]);
 
   return (
     <>

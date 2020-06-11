@@ -3,7 +3,7 @@ import { PrismicClient } from "../../modules/Blog/fetcher";
 function linkResolver(doc) {
   // Pretty URLs for known types
   if (doc.type === "post") {
-    return `/posts/${doc.uid}`;
+    return `blog/posts/${doc.uid}`;
   }
 
   // Fallback for other types, in case new custom types get created
