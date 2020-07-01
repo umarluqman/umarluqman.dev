@@ -1,6 +1,6 @@
 import { PrismicClient } from "../../screens/Blog/api";
 
-export function linkResolver(doc) {
+export const linkResolver = (doc) => {
   // Pretty URLs for known types
   if (doc.type === "post") {
     return `/blog/${doc.uid}`;
@@ -8,7 +8,7 @@ export function linkResolver(doc) {
 
   // Fallback for other types, in case new custom types get created
   return `/${doc.uid}`;
-}
+};
 
 export default async function preview(req, res) {
   const ref = req.query.token;
