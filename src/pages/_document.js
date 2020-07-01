@@ -21,7 +21,7 @@ export default class MyDocument extends Document {
             content="/static/favicons/browserconfig.xml"
             name="msapplication-config"
           />
-
+          <link rel="stylesheet" type="text/css" href="/nprogress.css" />
           <link href="/static/favicons/favicon.ico" rel="shortcut icon" />
           <link href="/static/favicons/site.webmanifest" rel="manifest" />
           <link
