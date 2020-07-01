@@ -7,6 +7,15 @@ import { DefaultSeo } from "next-seo";
 import SEO from "../../next-seo.config";
 // Use only { cache } from 'emotion'. Don't use { css }.
 import { cache } from "emotion";
+import NProgress from "nprogress";
+import Router from "next/router";
+
+Router.events.on("routeChangeStart", (url) => {
+  console.log(`Loading: ${url}`);
+  NProgress.start();
+});
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
 
 export default class App extends NextApp {
   render() {

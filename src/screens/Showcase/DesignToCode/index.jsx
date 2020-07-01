@@ -16,6 +16,7 @@ import { jsx } from "@emotion/core";
 import Card from "../../../components/Card";
 import DesignToCodeText from "../../../components/DesignToCodeText";
 import Link from "next/link";
+import Header from "../../../components/Header";
 
 const Showcase = () => {
   const { colorMode } = useColorMode();
@@ -52,15 +53,7 @@ const Showcase = () => {
       </Box>
       <Box maxWidth={800} mb={12}>
         <Box w="full">
-          <Heading
-            fontSize="5xl"
-            pb={6}
-            letterSpacing="tight"
-            color={headingColor[colorMode]}
-          >
-            {" "}
-            Design to Code
-          </Heading>
+          <Header colorMode={colorMode}>Design to Code</Header>
           <DesignToCodeText />
           <Box h={8}></Box>
           <Grid templateColumns="repeat(auto-fit, minmax(200px, 1fr))" gap={8}>
