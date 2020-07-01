@@ -1,3 +1,3 @@
-import Showcase from "../../modules/Showcase/GridGallery";
+import Showcase from "../../screens/Showcase/GridGallery";
 
 export default Showcase;

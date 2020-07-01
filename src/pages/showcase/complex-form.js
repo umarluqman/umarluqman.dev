@@ -1,3 +1,3 @@
-import Showcase from "../../modules/Showcase/DesignToCode/ComplexForm";
+import Showcase from "../../screens/Showcase/DesignToCode/ComplexForm";
 
 export default Showcase;
