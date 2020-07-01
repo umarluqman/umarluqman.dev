@@ -1,18 +1,9 @@
 /**@jsx jsx */
-import React from "react";
+import { Box, Button, Stack, Text, useColorMode } from "@chakra-ui/core";
 import { jsx } from "@emotion/core";
-import {
-  Button,
-  Box,
-  Text,
-  Stack,
-  Heading,
-  useColorMode,
-} from "@chakra-ui/core";
-import PropTypes from "prop-types";
-import Link from "next/link";
 import styled from "@emotion/styled";
 import Router from "next/router";
+import Header from "../components/Header";
 
 const Home = (props) => {
   const { colorMode } = useColorMode();
@@ -43,17 +34,9 @@ const Home = (props) => {
   };
 
   return (
-    <Box maxWidth={"54rem"} w="full" as="main">
+    <Box maxWidth={800} w="full" as="main">
       <Stack spacing={3} p={8}>
-        <Heading
-          as="h1"
-          size="2xl"
-          fontWeight="700"
-          color={headingColor[colorMode]}
-          letterSpacing="tight"
-        >
-          Hey, I'm Umar Luqman
-        </Heading>
+        <Header colorMode={colorMode}>Hey, I'm Umar Luqman</Header>
         <Box w="full" height={2}></Box>
         <Text
           color={textColor[colorMode]}

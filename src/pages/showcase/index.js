@@ -1,3 +1,3 @@
-import Showcase from "../../modules/Showcase";
+import Showcase from "../../screens/Showcase";
 
 export default Showcase;
