@@ -1,6 +1,6 @@
 import { PrismicClient } from "../../screens/Blog/api";
 
-function linkResolver(doc) {
+export function linkResolver(doc) {
   // Pretty URLs for known types
   if (doc.type === "post") {
     return `/blog/${doc.uid}`;
