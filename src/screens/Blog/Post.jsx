@@ -6,6 +6,7 @@ import {
   Heading,
   Text,
   useColorMode,
+  Image,
 } from "@chakra-ui/core";
 import { css, jsx } from "@emotion/core";
 import dayjs from "dayjs";
@@ -25,8 +26,10 @@ const Post = ({ post = {} }) => {
     author = {},
     date = new Date(),
     body = [],
+    cover_image,
   } = post;
-  console.log("typeof title", typeof title);
+  console.log("cover_image", cover_image);
+
   return (
     <Flex
       display="flex"
@@ -67,31 +70,44 @@ const Post = ({ post = {} }) => {
       >
         <Header colorMode={colorMode}>{title[0]?.text}</Header>
         <Flex align="center" id="stack">
-          <Avatar src={author?.picture?.url}></Avatar>{" "}
+          <Avatar src={author?.picture?.url} size="sm"></Avatar>{" "}
           <Text fontWeight={600} color="gray.600">
             {author?.name}
           </Text>{" "}
           <Box
-            h="6px"
-            w="6px"
+            h="4px"
+            w="4px"
             backgroundColor="gray.400"
             borderRadius="50%"
             display="inline-block"
           ></Box>
-          <Text fontWeight={500} textTransform="uppercase" color="gray.600">
+          <Text fontWeight={400} color="gray.600">
             {dayjs(date).format("DD MMMM YYYY")}
           </Text>{" "}
           <Box
-            h="6px"
-            w="6px"
+            h="4px"
+            w="4px"
             backgroundColor="gray.400"
             borderRadius="50%"
             display="inline-block"
           ></Box>
-          <Text fontWeight={600} color="gray.500">
+          <Text fontWeight={400} color="gray.600">
             4 mins read
           </Text>
         </Flex>
+        <Box
+          h={400}
+          my={16}
+          boxShadow="0 30px 60px -10px rgba(0,0,0,0.2), 0 18px 36px -18px rgba(0,0,0,0.22)"
+        >
+          <Image
+            src={cover_image?.url}
+            alt={cover_image?.alt}
+            objectFit="cover"
+            w="full"
+            h="inherit"
+          />
+        </Box>
 
         <SliceZone sliceZone={body} />
       </Box>

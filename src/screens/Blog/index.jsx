@@ -101,7 +101,7 @@ export default function Blog({ allPosts }) {
                       </Heading>
                       <Flex align="center">
                         <Text
-                          fontWeight={500}
+                          fontWeight={400}
                           textTransform="uppercase"
                           color={smallTextcolor[colorMode]}
                           fontSize="sm"
@@ -110,15 +110,15 @@ export default function Blog({ allPosts }) {
                           {dayjs(date).format("DD MMMM YYYY")}
                         </Text>
                         <Box
-                          h="6px"
-                          w="6px"
+                          h="4px"
+                          w="4px"
                           backgroundColor="gray.400"
                           borderRadius="50%"
                           display="inline-block"
                           mr={2}
                         ></Box>
                         <Text
-                          fontWeight={500}
+                          fontWeight={400}
                           textTransform="uppercase"
                           color={smallTextcolor[colorMode]}
                           fontSize="sm"
