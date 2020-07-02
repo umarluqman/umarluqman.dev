@@ -7,7 +7,7 @@ import {
 import PostScreen from "../../screens/Blog/Post";
 
 export default function Post(props) {
-  console.log("props", props);
+  // console.log("props", props);
 
   return <PostScreen {...props} />;
 }

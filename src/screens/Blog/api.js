@@ -163,8 +163,6 @@ export async function getPostAndMorePosts(slug, previewData) {
     }
   );
 
-  console.log("data", data);
-
   data.morePosts = data.morePosts.edges
     .filter(({ node }) => node._meta.uid !== slug)
     .slice(0, 2);
