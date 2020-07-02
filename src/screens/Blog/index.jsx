@@ -12,6 +12,7 @@ import {
   theme,
   Divider,
   Badge,
+  Alert,
 } from "@chakra-ui/core";
 import PropTypes from "prop-types";
 import dayjs from "dayjs";
@@ -41,9 +42,13 @@ export default function Blog({ allPosts }) {
     >
       <Box maxWidth={810} w="full" as="main" p={6}>
         <Header colorMode={colorMode}>Blog</Header>
-        <Text mb={3} color={textColor[colorMode]} lineHeight="taller">
-          Work in progres 🚧
-        </Text>
+        <Alert
+          variant="left-accent"
+          status="warning"
+          color={textColor[colorMode]}
+        >
+          Work in progres 🚧 <br></br>Articles here are not real
+        </Alert>
         <Stack spacing={6} py={8}>
           {allPosts.map(({ node }) => {
             const {
@@ -68,13 +73,16 @@ export default function Blog({ allPosts }) {
                     w={300}
                     h={196}
                     objectFit="cover"
-                    pt={2}
+                    mt={8}
                     mb={4}
+                    borderRadius={8}
+                    boxShadow="0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);"
                   />
 
                   <Flex
                     direction="column"
                     p={4}
+                    pl={8}
                     pt={0}
                     justifyContent="space-between"
                     flex={1}

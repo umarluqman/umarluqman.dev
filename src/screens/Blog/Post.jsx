@@ -96,6 +96,7 @@ const Post = ({ post = {} }) => {
           </Text>
         </Flex>
         <Box
+          borderRadius={8}
           h={400}
           my={16}
           boxShadow="0 30px 60px -10px rgba(0,0,0,0.2), 0 18px 36px -18px rgba(0,0,0,0.22)"
@@ -106,6 +107,7 @@ const Post = ({ post = {} }) => {
             objectFit="cover"
             w="full"
             h="inherit"
+            borderRadius={8}
           />
         </Box>
 
