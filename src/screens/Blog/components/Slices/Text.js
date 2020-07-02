@@ -11,7 +11,6 @@ const TextSlice = ({ slice }) => {
     return Object.assign(props || {}, { key });
   };
   const htmlSerializer = (type, element, content, children, key) => {
-    console.log({ type, element, content, children, key });
     switch (type) {
       //Add a class to paragraph elements
 

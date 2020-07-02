@@ -12,14 +12,21 @@ import dayjs from "dayjs";
 import SliceZone from "./components/SliceZone";
 import Header from "../../components/Header";
 
-const Post = ({ post }) => {
+const Post = ({ post = {} }) => {
+  console.log("post", post);
   const { colorMode } = useColorMode();
 
   const bgColor = { light: "gray.50", dark: "gray.800" };
   const textColor = { light: "black", dark: "white" };
   const headingColor = { light: "black", dark: "white" };
 
-  const { title, author, date, body } = post;
+  const {
+    title = [{ text: "" }],
+    author = {},
+    date = new Date(),
+    body = [],
+  } = post;
+  console.log("typeof title", typeof title);
   return (
     <Flex
       display="flex"
