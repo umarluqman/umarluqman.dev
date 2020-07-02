@@ -4,8 +4,6 @@ import { getAllPosts } from "../../screens/Blog/api";
 import BlogScreen from "../../screens/Blog";
 
 export default function Blog(props) {
-  console.log("props", props);
-
   return <BlogScreen {...props} />;
 }
 
