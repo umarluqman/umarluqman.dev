@@ -69,11 +69,13 @@ const Page = ({ children }) => {
               </Button>
             </a>
             <IconButton
+              ml={2}
               icon={colorMode === "dark" ? Sun : Moon}
               onClick={toggleColorMode}
+              variant="ghost"
               css={{
                 svg: {
-                  fill: colorMode === "light" && "black",
+                  fill: colorMode === "light" ? "black" : "white",
                   width: 18,
                   height: 18,
                 },
