@@ -18,14 +18,12 @@ import PropTypes from "prop-types";
 import dayjs from "dayjs";
 import Router from "next/router";
 import Header from "../../components/Header";
-import { smallTextcolor } from "../../styles/colors";
+import { textColor, headingColor } from "../../styles/colors";
 
 export default function Blog({ allPosts }) {
   const { colorMode } = useColorMode();
 
   const bgColor = { light: "gray.50", dark: "gray.800" };
-  const textColor = { light: "black", dark: "white" };
-  const headingColor = { light: "black", dark: "white" };
 
   const handleNav = (slug) => () => {
     Router.push(`/blog/[slug]`, `/blog/${slug}`);
@@ -66,23 +64,25 @@ export default function Blog({ allPosts }) {
                   flexWrap="wrap"
                   onClick={handleNav(uid)}
                   css={{ "&:hover": { cursor: "pointer" } }}
+                  align="center"
                 >
                   <Image
                     src={cover_image?.url}
                     alt={cover_image?.alt}
-                    w={300}
-                    h={196}
+                    minW={300}
+                    maxW={{ sm: 367, md: 327 }}
+                    w="full"
+                    h={220}
                     objectFit="cover"
-                    mt={8}
-                    mb={4}
+                    mb={{ base: 8, md: 0 }}
                     borderRadius={8}
                     boxShadow="0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);"
                   />
 
                   <Flex
                     direction="column"
-                    p={4}
-                    pl={8}
+                    p={{ sm: 0, md: 4 }}
+                    pl={{ sm: 0, md: 8 }}
                     pt={0}
                     justifyContent="space-between"
                     flex={1}
@@ -102,7 +102,7 @@ export default function Blog({ allPosts }) {
                       <Heading
                         as="h2"
                         size={"lg"}
-                        color={textColor[colorMode]}
+                        color={headingColor[colorMode]}
                         mb={2}
                       >
                         {title[0]?.text}
@@ -111,7 +111,7 @@ export default function Blog({ allPosts }) {
                         <Text
                           fontWeight={400}
                           textTransform="uppercase"
-                          color={smallTextcolor[colorMode]}
+                          color={textColor[colorMode]}
                           fontSize="sm"
                           mr={2}
                         >
@@ -128,7 +128,7 @@ export default function Blog({ allPosts }) {
                         <Text
                           fontWeight={400}
                           textTransform="uppercase"
-                          color={smallTextcolor[colorMode]}
+                          color={textColor[colorMode]}
                           fontSize="sm"
                         >
                           4 mins read
@@ -137,7 +137,7 @@ export default function Blog({ allPosts }) {
                       <Text
                         mt={4}
                         lineHeight={2}
-                        color={smallTextcolor[colorMode]}
+                        color={textColor[colorMode]}
                         fontFamily="Inter"
                       >
                         {excerpt}

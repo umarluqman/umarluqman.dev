@@ -7,19 +7,19 @@ import {
   Text,
   useColorMode,
   Image,
+  Stack,
 } from "@chakra-ui/core";
 import { css, jsx } from "@emotion/core";
 import dayjs from "dayjs";
 import SliceZone from "./components/SliceZone";
 import Header from "../../components/Header";
+import { textColor } from "../../styles/colors";
 
 const Post = ({ post = {} }) => {
   console.log("post", post);
   const { colorMode } = useColorMode();
 
   const bgColor = { light: "gray.50", dark: "gray.800" };
-  const textColor = { light: "black", dark: "white" };
-  const headingColor = { light: "black", dark: "white" };
 
   const {
     title = [{ text: "" }],
@@ -69,29 +69,25 @@ const Post = ({ post = {} }) => {
         `}
       >
         <Header colorMode={colorMode}>{title[0]?.text}</Header>
-        <Flex align="center" id="stack">
-          <Avatar src={author?.picture?.url} size="sm"></Avatar>{" "}
-          <Text fontWeight={600} color="gray.600">
-            {author?.name}
-          </Text>{" "}
-          <Box
-            h="4px"
-            w="4px"
-            backgroundColor="gray.400"
-            borderRadius="50%"
-            display="inline-block"
-          ></Box>
-          <Text fontWeight={400} color="gray.600">
-            {dayjs(date).format("DD MMMM YYYY")}
-          </Text>{" "}
-          <Box
-            h="4px"
-            w="4px"
-            backgroundColor="gray.400"
-            borderRadius="50%"
-            display="inline-block"
-          ></Box>
-          <Text fontWeight={400} color="gray.600">
+        <Flex align="center" id="stack" justify="space-between">
+          <Stack isInline align="center">
+            <Avatar src={author?.picture?.url} size="sm" mt={0}></Avatar>{" "}
+            <Box mt={0}>
+              <Text fontWeight={600} color={textColor[colorMode]} fontSize="sm">
+                {author?.name}
+              </Text>{" "}
+              <Text
+                fontWeight={400}
+                color={textColor[colorMode]}
+                mt={0}
+                fontSize="sm"
+              >
+                {dayjs(date).format("DD MMMM YYYY")}
+              </Text>{" "}
+            </Box>
+          </Stack>
+
+          <Text fontWeight={400} color={textColor[colorMode]} fontSize="sm">
             4 mins read
           </Text>
         </Flex>

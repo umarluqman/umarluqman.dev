@@ -1,22 +1,30 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
 
-import { Alert } from "@chakra-ui/core";
+import { Alert, useColorMode } from "@chakra-ui/core";
+import { textColor } from "../../../../styles/colors";
 
 /**
  * Quote slice component
  */
-const Quote = ({ slice }) => (
-  <Alert
-    status="info"
-    variant="left-accent"
-    bg="blue.50"
-    borderColor="blue.500"
-    id="quote"
-    fontFamily="Inter"
-  >
-    {RichText.asText(slice.primary.quote)}
-  </Alert>
-);
+
+const alertBgColor = { light: "blue.100", dark: "blue.700" };
+const Quote = ({ slice }) => {
+  const { colorMode } = useColorMode();
+
+  return (
+    <Alert
+      status="info"
+      variant="left-accent"
+      bg={alertBgColor[colorMode]}
+      borderColor="blue.500"
+      id="quote"
+      fontFamily="Inter"
+      color={textColor[colorMode]}
+    >
+      {RichText.asText(slice.primary.quote)}
+    </Alert>
+  );
+};
 
 export default Quote;
