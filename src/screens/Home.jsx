@@ -4,12 +4,11 @@ import { jsx } from "@emotion/core";
 import styled from "@emotion/styled";
 import Router from "next/router";
 import Header from "../components/Header";
+import { textColor } from "../styles/colors";
 
 const Home = (props) => {
   const { colorMode } = useColorMode();
 
-  const smallTextcolor = { light: "gray.700", dark: "gray.200" };
-  const textColor = { light: "gray.700", dark: "gray.200" };
   const headingColor = { light: "black", dark: "white" };
   const showcaseColor = { light: "black", dark: "#16bdca" };
 
@@ -54,21 +53,13 @@ const Home = (props) => {
           . <br></br>
         </Text>
         <Box w="full" height={2}></Box>
-        <Text
-          color={smallTextcolor[colorMode]}
-          fontFamily="Inter"
-          lineHeight={1.8}
-        >
+        <Text color={textColor[colorMode]} fontFamily="Inter" lineHeight={1.8}>
           I prefer to write code expressively with minimal abstraction. I'm
           aware of the tradeoffs of both <b>DRY (Don't repeat yourself)</b> and{" "}
           <b>WET (Write everthing twice)</b> styles of coding.
         </Text>
         <Box w="full" height={2}></Box>
-        <Text
-          color={smallTextcolor[colorMode]}
-          fontFamily="Inter"
-          lineHeight={1.8}
-        >
+        <Text color={textColor[colorMode]} fontFamily="Inter" lineHeight={1.8}>
           Find my works at{" "}
           <Button
             variant="link"
