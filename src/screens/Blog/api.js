@@ -210,6 +210,7 @@ export async function getAllPosts(previewData) {
                 type
                 primary{
                   image
+                  caption
                 }
                 
               }

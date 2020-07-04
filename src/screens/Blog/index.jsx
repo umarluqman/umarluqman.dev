@@ -48,7 +48,7 @@ export default function Blog({ allPosts }) {
           Work in progres 🚧 <br></br>Articles here are not real
         </Alert>
         <Stack spacing={6} py={8}>
-          {allPosts.map(({ node }) => {
+          {allPosts.map(({ node, readingTime }) => {
             const {
               title,
               excerpt,
@@ -131,7 +131,7 @@ export default function Blog({ allPosts }) {
                           color={textColor[colorMode]}
                           fontSize="sm"
                         >
-                          4 mins read
+                          {readingTime.text}
                         </Text>
                       </Flex>
                       <Text
