@@ -30,7 +30,9 @@
     "react-feather": "^2.0.3",
     "react-query": "^1.0.33",
     "react-query-devtools": "^1.0.12",
+    "react-social-sharing": "^3.1.0",
     "react-table": "^7.0.0",
+    "reading-time": "^1.2.0",
     "use-media": "^1.4.0"
   },
   "devDependencies": {
