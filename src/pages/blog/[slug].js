@@ -5,11 +5,19 @@ import {
   getAllPostsWithSlug,
 } from "../../screens/Blog/api";
 import PostScreen from "../../screens/Blog/Post";
+import Head from "next/head";
 
-export default function Post(props) {
-  // console.log("props", props);
+export default function Post({ post, ...others }) {
+  console.log("x", post);
 
-  return <PostScreen {...props} />;
+  return (
+    <React.Fragment>
+      <Head>
+        <title key="title">{post?.title[0].text}</title>
+      </Head>
+      <PostScreen post={post} {...others} />
+    </React.Fragment>
+  );
 }
 
 Post.propTypes = {};
