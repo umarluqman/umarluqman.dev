@@ -35,8 +35,8 @@ const Showcase = () => {
             built upon it.
           </Text>
           <Text mb={3} color={textColor[colorMode]} lineHeight="taller">
-            A fashion E-commerce site with NextJS & e-commerce headless CMS will
-            be feature here soon.
+            A fashion e-commerce site with NextJS & headless CMS will be
+            featured here soon, currently in progress.
           </Text>
           <Flex
             color="gray.700"
