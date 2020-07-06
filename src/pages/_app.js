@@ -23,6 +23,7 @@ export default class App extends NextApp {
 
     return (
       <CacheProvider value={cache}>
+        <DefaultSeo {...SEO} />
         <ThemeProvider>
           <CSSReset />
           <Global
@@ -37,7 +38,6 @@ export default class App extends NextApp {
             `}
           ></Global>
           <ColorModeProvider value="light">
-            <DefaultSeo {...SEO} />
             <Page>
               <Component {...pageProps} />
             </Page>
