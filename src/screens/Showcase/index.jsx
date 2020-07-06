@@ -30,13 +30,25 @@ const Showcase = () => {
             Showcase
           </Heading>
           <Text mb={3} color={textColor[colorMode]} lineHeight="taller">
-            Collection of my side projects outside of my professional career.
-            Driven by curiosity, this is where I explored new stuff and built
-            upon it.
+            Collection of my mini side projects outside of my professional
+            career. Driven by curiosity, this is where I explored new stuff and
+            built upon it.
           </Text>
-          <Flex color="gray.700" align="baseline" color={textColor[colorMode]}>
+          <Text mb={3} color={textColor[colorMode]} lineHeight="taller">
+            A fashion E-commerce site with NextJS & e-commerce headless CMS will
+            be feature here soon.
+          </Text>
+          <Flex
+            color="gray.700"
+            align="baseline"
+            color={textColor[colorMode]}
+            lineHeight="taller"
+          >
             <Text>
-              For professional experiences, check out my{" "}
+              I'm currently working on a multi-tenancy property lead management
+              platform project for my day job.
+              <Box css={{ width: "100%" }} mb={3}></Box>
+              Check out my{" "}
               <Button
                 variant="ghost"
                 verticalAlign="unset"
@@ -47,6 +59,7 @@ const Showcase = () => {
                 href="https://www.linkedin.com/in/umarluqman/"
                 target="_blank"
                 rel="noopener noreferrer"
+                mr={3}
               >
                 LinkedIn
               </Button>
