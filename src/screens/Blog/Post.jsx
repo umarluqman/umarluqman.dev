@@ -15,10 +15,8 @@ import SliceZone from "./components/SliceZone";
 import Header from "../../components/Header";
 import { textColor } from "../../styles/colors";
 import { BlogJsonLd } from "next-seo";
-import Router from "next/router";
 
 const Post = ({ post = {} }) => {
-  console.log("post", post);
   const { colorMode } = useColorMode();
 
   const bgColor = { light: "gray.50", dark: "gray.800" };
@@ -40,7 +38,7 @@ const Post = ({ post = {} }) => {
   return (
     <React.Fragment>
       <BlogJsonLd
-        url={`https://umarluqman.com/${uid}`}
+        url={`https://umarluqman.com/${uid ?? ""}`}
         title="post"
         images={[cover_image?.url]}
         datePublished={firstPublicationDate}
