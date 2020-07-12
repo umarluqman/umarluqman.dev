@@ -79,6 +79,8 @@ export async function getPostAndMorePosts(slug, previewData) {
       }
       _meta {
         uid
+        firstPublicationDate
+        lastPublicationDate
       }
       body {
         ... on PostBodyText{
@@ -106,6 +108,7 @@ export async function getPostAndMorePosts(slug, previewData) {
         }
         __typename
       }
+      og_description
     }
    morePosts: allPosts(sortBy: date_DESC, first: 3) {
       edges {
