@@ -34,12 +34,18 @@ const Page = ({ children }) => {
               Next
             </Button>
           </Link>{" "}
-          & hosted in{" "}
+          &{" "}
+          <Link href="https://prismic.io/" isExternal>
+            <Button p={2} variant="link" color={textColor[colorMode]}>
+              Prismic
+            </Button>
+          </Link>{" "}
+          {/* Hosted in{" "}
           <Link href="https://vercel.com" isExternal>
             <Button p={2} variant="link" color={textColor[colorMode]}>
               Vercel
             </Button>
-          </Link>{" "}
+          </Link>{" "} */}
         </Flex>
         <Flex w={{ base: "100%", sm: "max-content" }} justify="center">
           <Link href="https://twitter.com/umarlqmn" isExternal>
