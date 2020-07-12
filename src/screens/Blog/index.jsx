@@ -58,9 +58,8 @@ export default function Blog({ allPosts }) {
             } = node;
 
             return (
-              <>
+              <React.Fragment key={uid}>
                 <Flex
-                  key={uid}
                   flexWrap="wrap"
                   onClick={handleNav(uid)}
                   css={{ "&:hover": { cursor: "pointer" } }}
@@ -146,7 +145,7 @@ export default function Blog({ allPosts }) {
                   </Flex>
                 </Flex>
                 <Divider my={8} borderColor="gray.300" />
-              </>
+              </React.Fragment>
             );
           })}
         </Stack>
