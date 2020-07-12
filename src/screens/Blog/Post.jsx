@@ -29,8 +29,12 @@ const Post = ({ post = {} }) => {
     date = new Date(),
     body = [],
     cover_image,
-    _meta: { uid, lastPublicationDate, firstPublicationDate },
-    og_description,
+    _meta: {
+      uid = "",
+      lastPublicationDate = new Date(),
+      firstPublicationDate = new Date(),
+    },
+    og_description = "",
   } = post;
 
   return (
