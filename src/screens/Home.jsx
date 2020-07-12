@@ -33,7 +33,7 @@ const Home = (props) => {
   };
 
   return (
-    <Box maxWidth={800} w="full" as="main">
+    <Box maxWidth={800} w="full" as="main" minHeight="85vh">
       <Stack spacing={3} p={8}>
         <Header colorMode={colorMode}>Hey, I'm Umar Luqman</Header>
         <Box w="full" height={2}></Box>
@@ -55,8 +55,15 @@ const Home = (props) => {
         <Box w="full" height={2}></Box>
         <Text color={textColor[colorMode]} fontFamily="Inter" lineHeight={1.8}>
           I prefer to write code expressively with minimal abstraction. I'm
-          aware of the tradeoffs of both <b>DRY (Don't repeat yourself)</b> and{" "}
-          <b>WET (Write everthing twice)</b> styles of coding.
+          aware of the tradeoffs of both{" "}
+          <Text as="spam" color={headingColor[colorMode]} fontWeight={500}>
+            DRY (Don't repeat yourself)
+          </Text>{" "}
+          and{" "}
+          <Text as="spam" color={headingColor[colorMode]} fontWeight={500}>
+            WET (Write everthing twice)
+          </Text>{" "}
+          styles of coding.
         </Text>
         <Box w="full" height={2}></Box>
         <Text color={textColor[colorMode]} fontFamily="Inter" lineHeight={1.8}>

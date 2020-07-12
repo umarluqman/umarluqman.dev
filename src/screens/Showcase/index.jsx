@@ -18,7 +18,7 @@ const Showcase = () => {
   const headingColor = { light: "black", dark: "white" };
   return (
     <Flex direction="column" minHeight="100vh" w="100%" align="center" p={8}>
-      <Box maxWidth={800} mb={12}>
+      <Box maxWidth={710} mb={12}>
         <Box w="full">
           <Heading
             fontSize="5xl"
@@ -34,39 +34,26 @@ const Showcase = () => {
             career. Driven by curiosity, this is where I explored new stuff and
             built upon it.
           </Text>
-          <Text mb={3} color={textColor[colorMode]} lineHeight="taller">
-            A fashion e-commerce site with NextJS & headless CMS will be
-            featured here soon, currently in progress.
-          </Text>
-          <Flex
-            color="gray.700"
-            align="baseline"
-            color={textColor[colorMode]}
-            lineHeight="taller"
-          >
-            <Text>
-              I'm currently working on a multi-tenancy property lead management
-              platform project for my day job.
-              <Box css={{ width: "100%" }} mb={3}></Box>
-              Check out my{" "}
-              <Button
-                variant="ghost"
-                verticalAlign="unset"
-                rightIcon="external-link"
-                color={textColor[colorMode]}
-                variant="link"
-                as={"a"}
-                href="https://www.linkedin.com/in/umarluqman/"
-                target="_blank"
-                rel="noopener noreferrer"
-                mr={3}
-              >
-                LinkedIn
-              </Button>
-            </Text>
-          </Flex>
-          <Box h={8}></Box>
 
+          <Text color={textColor[colorMode]} lineHeight="taller">
+            I'm currently working on a multi-tenancy property lead management
+            platform project for my day job. Check out my{" "}
+            <Button
+              variant="ghost"
+              verticalAlign="unset"
+              rightIcon="external-link"
+              color={textColor[colorMode]}
+              variant="link"
+              as={"a"}
+              href="https://www.linkedin.com/in/umarluqman/"
+              target="_blank"
+              rel="noopener noreferrer"
+              mr={3}
+            >
+              LinkedIn
+            </Button>
+          </Text>
+          <Box h={12}></Box>
           <Grid templateColumns="repeat(auto-fit, minmax(200px, 1fr))" gap={8}>
             <Card
               title={"Design to Code Series"}
@@ -80,9 +67,11 @@ const Showcase = () => {
               pathname="/showcase/grid-gallery"
             ></Card>
           </Grid>
+          <Box h={12}></Box>
           <Flex justify="center" my={10}>
             <Text mb={3} color={textColor[colorMode]} fontWeight={300}>
-              This page is still in progress, more are coming.
+              A fashion e-commerce site with NextJS & headless CMS will be
+              featured here soon ⚡️
             </Text>
           </Flex>
         </Box>
