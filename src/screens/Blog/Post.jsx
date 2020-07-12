@@ -44,7 +44,7 @@ const Post = ({ post = {} }) => {
         datePublished={firstPublicationDate}
         dateModified={lastPublicationDate}
         authorName={author?.name}
-        description={og_description?.[0].text}
+        description={og_description?.[0]?.text}
       />
 
       <Flex
