@@ -31,14 +31,14 @@ const Post = ({ post = {} }) => {
       uid = "",
       lastPublicationDate = new Date(),
       firstPublicationDate = new Date(),
-    },
+    } = {},
     og_description = "",
   } = post;
 
   return (
     <React.Fragment>
       <BlogJsonLd
-        url={`https://umarluqman.com/${uid ?? ""}`}
+        url={`https://umarluqman.com/${uid}`}
         title="post"
         images={[cover_image?.url]}
         datePublished={firstPublicationDate}
