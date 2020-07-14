@@ -71,6 +71,7 @@ export async function getPostAndMorePosts(slug, previewData) {
       title
       date
       cover_image
+      caption
       author {
         ...on Author {
           name
