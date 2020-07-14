@@ -40,13 +40,8 @@ export default function Blog({ allPosts }) {
     >
       <Box maxWidth={810} w="full" as="main" p={6}>
         <Header colorMode={colorMode}>Blog</Header>
-        <Alert
-          variant="left-accent"
-          status="warning"
-          color={textColor[colorMode]}
-        >
-          Work in progres 🚧 <br></br>Articles here are not real
-        </Alert>
+        <Text>This blog is dedicated to share anything that interest me</Text>
+
         <Stack spacing={6} py={8}>
           {allPosts.map(({ node, readingTime }) => {
             const {

@@ -112,7 +112,7 @@ const Post = ({ post = {} }) => {
             </Stack>
 
             <Text fontWeight={400} color={textColor[colorMode]} fontSize="sm">
-              4 mins read
+              2 mins read
             </Text>
           </Flex>
           <Box
