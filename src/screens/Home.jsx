@@ -42,9 +42,9 @@ const Home = (props) => {
           fontFamily="Inter"
           lineHeight="taller"
         >
-          I'm a front-end developer living in Malaysia, directed towards
-          building solution with a primary focus on future maintability and
-          business aspects{" "}
+          I'm a software engineer living in Malaysia, directed towards building
+          solution with a primary focus on future maintability and business
+          aspects{" "}
           <StyledStrike>
             {" "}
             rather than feeding my own impulse of writing complex code to feel
