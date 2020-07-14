@@ -40,7 +40,9 @@ export default function Blog({ allPosts }) {
     >
       <Box maxWidth={810} w="full" as="main" p={6}>
         <Header colorMode={colorMode}>Blog</Header>
-        <Text>This blog is dedicated to share anything that interest me</Text>
+        <Text>
+          This blog is dedicated to share anything that I found interesting.
+        </Text>
 
         <Stack spacing={6} py={8}>
           {allPosts.map(({ node, readingTime }) => {
@@ -91,7 +93,7 @@ export default function Blog({ allPosts }) {
                         textTransform="capitalize"
                         letterSpacing="wider"
                       >
-                        Development
+                        Philosophy
                       </Badge>
                       <Heading
                         as="h2"

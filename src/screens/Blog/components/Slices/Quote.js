@@ -21,6 +21,8 @@ const Quote = ({ slice }) => {
       id="quote"
       fontFamily="Inter"
       color={alertColor[colorMode]}
+      lineHeight="taller"
+      py={4}
     >
       {RichText.asText(slice.primary.quote)}
     </Alert>
