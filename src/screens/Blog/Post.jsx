@@ -14,7 +14,7 @@ import dayjs from "dayjs";
 import SliceZone from "./components/SliceZone";
 import Header from "../../components/Header";
 import { textColor } from "../../styles/colors";
-import { BlogJsonLd } from "next-seo";
+import { BlogJsonLd, NextSeo } from "next-seo";
 
 const Post = ({ post = {} }) => {
   const { colorMode } = useColorMode();
@@ -36,11 +36,41 @@ const Post = ({ post = {} }) => {
     caption,
   } = post;
 
+  const SEO = {
+    title: title[0].text,
+    description: og_description?.[0]?.text,
+    canonical: `https://umarluqman.com/${uid}`,
+    openGraph: {
+      type: "website",
+      locale: "en_GB",
+      url: `https://umarluqman.com/${uid}`,
+      title: title[0].text,
+      description: og_description?.[0]?.text,
+      images: [
+        {
+          url: cover_image?.url,
+          width: 800,
+          height: 600,
+          alt: cover_image?.url,
+        },
+      ],
+    },
+  };
+
   return (
     <React.Fragment>
+      <NextSeo
+        {...SEO}
+        twitter={{
+          handle: "@umarlqmn",
+          site: "@umarlqmn",
+          cardType: "summary_large_image",
+        }}
+      />
+
       <BlogJsonLd
         url={`https://umarluqman.com/${uid}`}
-        title="post"
+        title={title[0]?.text}
         images={[cover_image?.url]}
         datePublished={firstPublicationDate}
         dateModified={lastPublicationDate}
