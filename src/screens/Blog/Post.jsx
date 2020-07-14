@@ -33,6 +33,7 @@ const Post = ({ post = {} }) => {
       firstPublicationDate = new Date(),
     } = {},
     og_description = "",
+    caption,
   } = post;
 
   return (

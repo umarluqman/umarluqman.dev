@@ -1,7 +1,9 @@
 import React from "react";
 import { RichText, Elements } from "prismic-reactjs";
-import { Text, Heading, useColorMode } from "@chakra-ui/core";
+import { Text, Heading, Link, useColorMode } from "@chakra-ui/core";
 import { textColor, headingColor } from "../../../../styles/colors";
+import { linkResolver } from "../../../../pages/api/preview";
+
 // import { customLink } from "utils/prismicHelpers";
 
 /**
@@ -9,6 +11,7 @@ import { textColor, headingColor } from "../../../../styles/colors";
  */
 const TextSlice = ({ slice }) => {
   const { colorMode } = useColorMode();
+  const linkColor = { light: "#13AAB5", dark: "#16bdca" };
   const propsWithUniqueKey = function (props, key) {
     return Object.assign(props || {}, { key });
   };
@@ -97,7 +100,25 @@ const TextSlice = ({ slice }) => {
           propsWithUniqueKey({ color: textColor[colorMode] }, key),
           children
         );
-
+      case Elements.hyperlink:
+        const targetAttr = element.data.target
+          ? { target: element.data.target }
+          : {};
+        const relAttr = element.data.target ? { rel: "noopener" } : {};
+        const props = Object.assign(
+          {
+            href: element.data.url || linkResolver(element.data),
+            isExternal: true,
+            color: linkColor[colorMode],
+          },
+          targetAttr,
+          relAttr
+        );
+        return React.createElement(
+          Link,
+          propsWithUniqueKey(props, key),
+          children
+        );
       // Return null to stick with the default behavior for all other elements
       default:
         return null;
