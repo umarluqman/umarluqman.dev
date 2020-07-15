@@ -39,11 +39,11 @@ const Post = ({ post = {} }) => {
   const SEO = {
     title: title[0].text,
     description: og_description?.[0]?.text,
-    canonical: `https://umarluqman.com/${uid}`,
+    canonical: `https://umarluqman.com/blog/${uid}`,
     openGraph: {
       type: "website",
       locale: "en_GB",
-      url: `https://umarluqman.com/${uid}`,
+      url: `https://umarluqman.com/blog/${uid}`,
       title: title[0].text,
       description: og_description?.[0]?.text,
       images: [
