@@ -41,11 +41,11 @@ const Post = ({ post = {} }) => {
   const SEO = {
     title: title[0].text,
     description: og_description?.[0]?.text,
-    canonical: `https://umarluqman.com/blog/${uid}`,
+    canonical: `https://umarluqman.dev/blog/${uid}`,
     openGraph: {
       type: "website",
       locale: "en_GB",
-      url: `https://umarluqman.com/blog/${uid}`,
+      url: `https://umarluqman.dev/blog/${uid}`,
       title: title[0].text,
       description: og_description?.[0]?.text,
       images: [
@@ -71,7 +71,7 @@ const Post = ({ post = {} }) => {
       />
 
       <BlogJsonLd
-        url={`https://umarluqman.com/${uid}`}
+        url={`https://umarluqman.dev/${uid}`}
         title={title[0]?.text}
         images={[cover_image?.url]}
         datePublished={firstPublicationDate}
