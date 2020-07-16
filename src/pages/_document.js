@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { extractCritical } from "emotion-server";
+import GoogleFonts from "next-google-fonts";
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -12,6 +13,7 @@ export default class MyDocument extends Document {
     const GA_TRACKING_ID = "UA-164939980-1";
     return (
       <Html lang="en">
+        <GoogleFonts href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
         <Head>
           <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
           <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -24,10 +26,6 @@ export default class MyDocument extends Document {
           <link rel="stylesheet" type="text/css" href="/nprogress.css" />
           <link href="/static/favicons/favicon.ico" rel="shortcut icon" />
           <link href="/static/favicons/site.webmanifest" rel="manifest" />
-          <link
-            href="https://fonts.googleapis.com/css?family=Inter:400&display=swap"
-            rel="stylesheet"
-          />
           <link
             href="/static/favicons/apple-touch-icon.png"
             rel="apple-touch-icon"
