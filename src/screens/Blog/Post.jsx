@@ -3,7 +3,7 @@ import {
   Avatar,
   Box,
   Flex,
-  Heading,
+  Tooltip,
   Text,
   useColorMode,
   Image,
@@ -15,6 +15,8 @@ import SliceZone from "./components/SliceZone";
 import Header from "../../components/Header";
 import { textColor } from "../../styles/colors";
 import { BlogJsonLd, NextSeo } from "next-seo";
+import { TwitterShareButton, TwitterIcon } from "react-share";
+import Router from "next/router";
 
 const Post = ({ post = {} }) => {
   const { colorMode } = useColorMode();
@@ -163,6 +165,16 @@ const Post = ({ post = {} }) => {
           </Box>
 
           <SliceZone sliceZone={body} />
+          <Stack spacing={8} isInline>
+            <Tooltip label="Share on Twitter">
+              <TwitterShareButton
+                url={`https://umarluqman.dev/blog/${uid}`}
+                title={title[0]?.text}
+              >
+                <TwitterIcon size={45} round />
+              </TwitterShareButton>
+            </Tooltip>
+          </Stack>
         </Box>
       </Flex>
     </React.Fragment>
