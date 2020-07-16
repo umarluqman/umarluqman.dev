@@ -21,6 +21,7 @@
     "formik": "^2.1.4",
     "isomorphic-unfetch": "^3.0.0",
     "next": "latest",
+    "next-google-fonts": "^1.2.1",
     "next-seo": "^4.4.0",
     "nprogress": "^0.2.0",
     "prismic-javascript": "^3.0.0",
