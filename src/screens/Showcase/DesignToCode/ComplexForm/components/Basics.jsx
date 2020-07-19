@@ -44,7 +44,7 @@ const Basics = ({ values, ...formProps }) => {
             onChange={formProps.handleChange}
             id="email"
           />
-          <FormHelperText>Helper message</FormHelperText>
+          <FormHelperText>Example: contact@umarluqman.dev</FormHelperText>
           <FormErrorMessage>Error message</FormErrorMessage>
         </FormControl>
         <FormControl
