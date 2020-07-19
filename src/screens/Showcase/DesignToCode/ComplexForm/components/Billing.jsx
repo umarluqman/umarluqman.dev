@@ -11,27 +11,34 @@ import {
   Grid,
   Text,
   theme,
+  RadioButtonGroup,
 } from "@chakra-ui/core";
 import { jsx } from "@emotion/core";
 import useMedia from "use-media";
 import * as React from "react";
 
-const PlanBox = ({ name, size, setPlan, plan }) => {
-  const selected = plan === name;
+const PlanBox = React.forwardRef((props, ref) => {
+  const { value, size, plan, isChecked, ...rest } = props;
+
   return (
-    <Box
+    <Button
+      ref={ref}
+      display="block"
       borderRadius={8}
+      variantColor="teal"
       border={
-        selected
+        isChecked
           ? `2px solid ${theme.colors.teal[400]}`
           : `2px solid ${theme.colors.gray[300]}`
       }
+      bg={theme.colors.gray[50]}
       p={4}
       css={
-        selected
+        isChecked
           ? {
               "&:hover": {
                 cursor: "pointer",
+                backgroundColor: theme.colors.teal[50],
               },
               transition: "0.3s",
               backgroundColor: theme.colors.teal[50],
@@ -47,19 +54,20 @@ const PlanBox = ({ name, size, setPlan, plan }) => {
       }
       textAlign="left"
       height="100%"
-      onClick={() => setPlan(name)}
+      onClick={() => setPlan(value)}
+      {...rest}
     >
       <Text
         fontSize="sm"
         letterSpacing={1.2}
         fontWeight="semibold"
-        color={theme.colors.gray[600]}
+        color={isChecked ? theme.colors.teal[600] : theme.colors.gray[600]}
         pb={2}
       >
-        {name}
+        {value}
       </Text>
-      <Text>
-        <span>
+      <Text color={"black"}>
+        <span css={{ fontWeight: 500 }}>
           <b>
             <span css={{ fontSize: 24 }}>{size}</span> GB
           </b>
@@ -75,9 +83,9 @@ const PlanBox = ({ name, size, setPlan, plan }) => {
         </span>
         / month
       </Text>
-    </Box>
+    </Button>
   );
-};
+});
 
 const Billing = ({ values, ...formProps }) => {
   const { lg, md: medium, xl, sm: small } = theme.breakpoints;
@@ -110,30 +118,20 @@ const Billing = ({ values, ...formProps }) => {
               Cancel Subscription
             </Button>
           </Flex>
+          <RadioButtonGroup
+            css={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(200px,1fr))",
+              gap: 12,
+            }}
+            defaultValue="ESSENTIAL"
+            onChange={(val) => setPlan(val)}
+          >
+            <PlanBox value={"BASIC"} size={"1"} plan={plan} price="5" />
+            <PlanBox value={"ESSENTIAL"} size={"5"} plan={plan} price="10" />
+            <PlanBox value={"PRO"} size={"15"} plan={plan} price="20" />
+          </RadioButtonGroup>
 
-          <Grid templateColumns="repeat(auto-fit, minmax(180px,1fr))" gap={5}>
-            <PlanBox
-              name={"BASIC"}
-              size={"1"}
-              setPlan={setPlan}
-              plan={plan}
-              price="5"
-            />
-            <PlanBox
-              name={"ESSENTIAL"}
-              size={"5"}
-              setPlan={setPlan}
-              plan={plan}
-              price="10"
-            />
-            <PlanBox
-              name={"PRO"}
-              size={"15"}
-              setPlan={setPlan}
-              plan={plan}
-              price="20"
-            />
-          </Grid>
           <FormErrorMessage>Error message</FormErrorMessage>
         </FormControl>
         <FormControl
