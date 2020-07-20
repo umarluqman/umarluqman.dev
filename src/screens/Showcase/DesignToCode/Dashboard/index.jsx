@@ -255,7 +255,7 @@ const Index = () => {
           </BreadcrumbItem>
 
           <BreadcrumbItem isCurrentPage>
-            <BreadcrumbLink fontWeight={600}>Complex Form</BreadcrumbLink>
+            <BreadcrumbLink fontWeight={600}>Dashboard</BreadcrumbLink>
           </BreadcrumbItem>
         </Breadcrumb>
       </Box>
