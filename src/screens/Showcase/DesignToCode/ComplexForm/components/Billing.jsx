@@ -40,7 +40,7 @@ const PlanBox = React.forwardRef((props, ref) => {
   };
 
   const borderColor = {
-    light: theme.colors.gray[300],
+    light: theme.colors.gray[100],
     dark: theme.colors.gray[700],
   };
 
