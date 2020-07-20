@@ -22,7 +22,6 @@ const Showcase = () => {
   const { colorMode } = useColorMode();
 
   const textColor = { light: "gray.700", dark: "gray.200" };
-  const headingColor = { light: "black", dark: "white" };
   return (
     <Flex
       direction="column"

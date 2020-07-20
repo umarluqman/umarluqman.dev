@@ -1,24 +1,25 @@
 /**@jsx jsx */
-import { jsx } from "@emotion/core";
 import {
-  Flex,
-  Box,
-  Text,
-  Stack,
-  Heading,
-  Button,
-  Image,
-  useColorMode,
-  theme,
-  Divider,
   Badge,
-  Alert,
+  Box,
+  Divider,
+  Flex,
+  Heading,
+  Image,
+  Stack,
+  Text,
+  useColorMode,
 } from "@chakra-ui/core";
-import PropTypes from "prop-types";
+import { jsx } from "@emotion/core";
 import dayjs from "dayjs";
 import Router from "next/router";
 import Header from "../../components/Header";
-import { textColor, headingColor } from "../../styles/colors";
+import {
+  badgeBgColor,
+  badgeTextColor,
+  headingColor,
+  textColor,
+} from "../../styles/colors";
 
 export default function Blog({ allPosts }) {
   const { colorMode } = useColorMode();
@@ -40,7 +41,7 @@ export default function Blog({ allPosts }) {
     >
       <Box maxWidth={810} w="full" as="main" p={6}>
         <Header colorMode={colorMode}>Blog</Header>
-        <Text>
+        <Text color={textColor[colorMode]}>
           This blog is dedicated to share anything that I found interesting.
         </Text>
 
@@ -92,6 +93,8 @@ export default function Blog({ allPosts }) {
                         fontWeight={500}
                         textTransform="capitalize"
                         letterSpacing="wider"
+                        textColor={badgeTextColor[colorMode]}
+                        bg={badgeBgColor[colorMode]}
                       >
                         Philosophy
                       </Badge>
@@ -141,7 +144,9 @@ export default function Blog({ allPosts }) {
                     </Box>
                   </Flex>
                 </Flex>
-                <Divider my={8} borderColor="gray.300" />
+                {colorMode === "light" && (
+                  <Divider my={8} borderColor="gray.300" />
+                )}
               </React.Fragment>
             );
           })}

@@ -3,20 +3,19 @@ import {
   Avatar,
   Box,
   Flex,
-  Tooltip,
-  Text,
-  useColorMode,
   Image,
   Stack,
+  Text,
+  Tooltip,
+  useColorMode,
 } from "@chakra-ui/core";
 import { css, jsx } from "@emotion/core";
 import dayjs from "dayjs";
-import SliceZone from "./components/SliceZone";
+import { BlogJsonLd, NextSeo } from "next-seo";
+import { TwitterIcon, TwitterShareButton } from "react-share";
 import Header from "../../components/Header";
 import { textColor } from "../../styles/colors";
-import { BlogJsonLd, NextSeo } from "next-seo";
-import { TwitterShareButton, TwitterIcon } from "react-share";
-import Router from "next/router";
+import SliceZone from "./components/SliceZone";
 
 const Post = ({ post = {} }) => {
   const { colorMode } = useColorMode();

@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/core";
 import { jsx } from "@emotion/core";
 import Card from "../../components/Card";
+import { linkColor } from "../../styles/colors";
 
 const Showcase = () => {
   const { colorMode } = useColorMode();
@@ -42,7 +43,7 @@ const Showcase = () => {
               variant="ghost"
               verticalAlign="unset"
               rightIcon="external-link"
-              color={textColor[colorMode]}
+              color={linkColor[colorMode]}
               variant="link"
               as={"a"}
               href="https://www.linkedin.com/in/umarluqman/"

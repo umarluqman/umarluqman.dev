@@ -4,13 +4,12 @@ import { jsx } from "@emotion/core";
 import styled from "@emotion/styled";
 import Router from "next/router";
 import Header from "../components/Header";
-import { textColor } from "../styles/colors";
+import { textColor, linkColor } from "../styles/colors";
 
 const Home = (props) => {
   const { colorMode } = useColorMode();
 
   const headingColor = { light: "black", dark: "white" };
-  const showcaseColor = { light: "black", dark: "#16bdca" };
 
   const StyledStrike = styled("span")`
     display: inline;
@@ -71,7 +70,7 @@ const Home = (props) => {
           <Button
             variant="link"
             verticalAlign="unset"
-            color={showcaseColor[colorMode]}
+            color={linkColor[colorMode]}
             rightIcon="external-link"
             onClick={handleNavShowcase}
           >

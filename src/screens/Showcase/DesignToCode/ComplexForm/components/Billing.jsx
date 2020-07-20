@@ -12,13 +12,33 @@ import {
   Text,
   theme,
   RadioButtonGroup,
+  useColorMode,
 } from "@chakra-ui/core";
 import { jsx } from "@emotion/core";
 import useMedia from "use-media";
 import * as React from "react";
+import { textColor, subtextColor } from "../../../../../styles/colors";
 
 const PlanBox = React.forwardRef((props, ref) => {
   const { value, size, plan, isChecked, ...rest } = props;
+
+  const { colorMode } = useColorMode();
+
+  const nameText = { light: "gray.600", dark: "gray.200" };
+  const blackWhite = { light: "black", dark: "white" };
+
+  const bg = { light: "gray.50", dark: "gray.800" };
+  const bgHover = { light: "#e6fffa3d", dark: theme.colors.teal[800] };
+
+  const bgIsChecked = {
+    light: theme.colors.teal[50],
+    dark: theme.colors.teal[900],
+  };
+
+  const bgIsCheckedHover = {
+    light: theme.colors.teal[50],
+    dark: theme.colors.teal[900],
+  };
 
   return (
     <Button
@@ -29,25 +49,25 @@ const PlanBox = React.forwardRef((props, ref) => {
       border={
         isChecked
           ? `2px solid ${theme.colors.teal[400]}`
-          : `2px solid ${theme.colors.gray[300]}`
+          : `2px solid ${theme.colors.gray[400]}`
       }
-      bg={theme.colors.gray[50]}
+      bg={bg[colorMode]}
       p={4}
       css={
         isChecked
           ? {
               "&:hover": {
                 cursor: "pointer",
-                backgroundColor: theme.colors.teal[50],
+                backgroundColor: bgIsCheckedHover[colorMode],
               },
               transition: "0.3s",
-              backgroundColor: theme.colors.teal[50],
+              backgroundColor: bgIsChecked[colorMode],
             }
           : {
               "&:hover": {
                 cursor: "pointer",
                 transition: "0.3s",
-                backgroundColor: "#e6fffa3d",
+                backgroundColor: bgHover[colorMode],
                 borderColor: theme.colors.teal[400],
               },
             }
@@ -61,25 +81,28 @@ const PlanBox = React.forwardRef((props, ref) => {
         fontSize="sm"
         letterSpacing={1.2}
         fontWeight="semibold"
-        color={isChecked ? theme.colors.teal[600] : theme.colors.gray[600]}
+        color={nameText[colorMode]}
         pb={2}
       >
         {value}
       </Text>
-      <Text color={"black"}>
+      <Text color={blackWhite[colorMode]}>
         <span css={{ fontWeight: 500 }}>
           <b>
             <span css={{ fontSize: 24 }}>{size}</span> GB
           </b>
         </span>{" "}
-        <span css={{ fontWeight: 600, color: theme.colors.gray[600] }}>
+        <Text as="span" fontWeight={600} color={subtextColor[colorMode]}>
           {" "}
           uploads
-        </span>
+        </Text>
       </Text>
-      <Text fontWeight={600} color={theme.colors.gray[600]}>
+      <Text fontWeight={600} color={subtextColor[colorMode]}>
         <span>
-          $ <span css={{ fontWeight: 700, color: theme.colors.black }}>5 </span>
+          ${" "}
+          <span css={{ fontWeight: 700, color: blackWhite[colorMode] }}>
+            5{" "}
+          </span>
         </span>
         / month
       </Text>
@@ -88,18 +111,29 @@ const PlanBox = React.forwardRef((props, ref) => {
 });
 
 const Billing = ({ values, ...formProps }) => {
-  const { lg, md: medium, xl, sm: small } = theme.breakpoints;
+  const borderColor = {
+    light: theme.colors.gray[300],
+    dark: theme.colors.gray[900],
+  };
+
+  const { colorMode } = useColorMode();
+  const { md: medium } = theme.breakpoints;
 
   const md = useMedia(`(min-width: ${medium})`);
   const [plan, setPlan] = React.useState("BASIC");
 
   return (
-    <Grid templateColumns={md ? "1fr 2fr" : "1fr"} p={4} mt={2}>
+    <Grid
+      templateColumns={md ? "1fr 2fr" : "1fr"}
+      p={4}
+      mt={2}
+      color={textColor[colorMode]}
+    >
       <Box mr={8} mb={4}>
         <Text fontSize="xl" mb={4}>
           Billing
         </Text>
-        <Text color="gray.500">
+        <Text color={subtextColor[colorMode]}>
           This information will be shown publicly so be careful what information
           you provide
         </Text>
@@ -147,7 +181,7 @@ const Billing = ({ values, ...formProps }) => {
             justifyContent="space-between"
             width="100%"
             borderRadius={8}
-            border={`1px solid ${theme.colors.gray[300]}`}
+            border={`1px solid ${borderColor[colorMode]}`}
             p={4}
             alignItems="center"
           >

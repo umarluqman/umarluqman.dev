@@ -8,21 +8,29 @@ import {
   Grid,
   Text,
   theme,
+  useColorMode,
 } from "@chakra-ui/core";
 import * as React from "react";
 import useMedia from "use-media";
+import { textColor, subtextColor } from "../../../../../styles/colors";
 
 const Notification = ({ ...formProps }) => {
-  const { lg, md: medium, xl, sm: small } = theme.breakpoints;
+  const { colorMode } = useColorMode();
+  const { md: medium } = theme.breakpoints;
 
   const md = useMedia(`(min-width: ${medium})`);
   return (
-    <Grid templateColumns={md ? "1fr 2fr" : "1fr"} p={4} mt={2}>
+    <Grid
+      templateColumns={md ? "1fr 2fr" : "1fr"}
+      p={4}
+      mt={2}
+      color={textColor[colorMode]}
+    >
       <Box mr={8} mb={4}>
         <Text fontSize="xl" mb={4}>
           Notification
         </Text>
-        <Text color="gray.500">
+        <Text color={subtextColor[colorMode]}>
           Get notified of activity going on with your account. Notifications
           will be sent to the email that you have provided.
         </Text>
@@ -36,7 +44,7 @@ const Notification = ({ ...formProps }) => {
       >
         <Flex width="100%">
           <FormControl width="100%" mb={8} mr={4}>
-            <CheckboxGroup variantColor="blue" defaultValue={[]} size="lg">
+            <CheckboxGroup variantColor="teal" defaultValue={[]} size="lg">
               <Checkbox
                 value="activity"
                 alignItems="baseline"
