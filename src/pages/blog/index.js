@@ -1,7 +1,7 @@
 /**@jsx jsx */
 import { jsx } from "@emotion/core";
 import { getAllPosts } from "../../screens/Blog/api";
-import BlogScreen from "../../screens/Blog";
+import BlogScreen from "../../screens/Blog/BlogList";
 import { RichText } from "prismic-reactjs";
 import readingTime from "reading-time";
 

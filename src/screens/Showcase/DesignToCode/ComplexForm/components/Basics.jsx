@@ -11,21 +11,29 @@ import {
   Text,
   Select,
   theme,
+  useColorMode,
 } from "@chakra-ui/core";
 import useMedia from "use-media";
 import * as React from "react";
+import { textColor, subtextColor } from "../../../../../styles/colors";
 
 const Basics = ({ values, ...formProps }) => {
   const { lg, md: medium, xl, sm: small } = theme.breakpoints;
 
+  const { colorMode } = useColorMode();
   const md = useMedia(`(min-width: ${medium})`);
   return (
-    <Grid templateColumns={md ? "1fr 2fr" : "1fr"} p={4} mt={2}>
+    <Grid
+      templateColumns={md ? "1fr 2fr" : "1fr"}
+      p={4}
+      mt={2}
+      color={textColor[colorMode]}
+    >
       <Box mr={8} mb={4}>
         <Text fontSize="xl" mb={4}>
           Basics
         </Text>
-        <Text color="gray.500">
+        <Text color={subtextColor[colorMode]}>
           Having an up-to-date email address attached to your account is a great
           step toward improved account security.
         </Text>
@@ -65,7 +73,10 @@ const Basics = ({ values, ...formProps }) => {
             value={values.language}
             {...formProps}
             id="language"
-          />
+          >
+            <option value="malay">Malay</option>
+            <option value="english">English</option>
+          </Select>
 
           <FormErrorMessage>Error message</FormErrorMessage>
         </FormControl>
@@ -77,7 +88,10 @@ const Basics = ({ values, ...formProps }) => {
             value={values.country}
             {...formProps}
             id="country"
-          />
+          >
+            <option value="malaysia">Malaysia</option>
+            <option value="uk">United Kingdom</option>
+          </Select>
           <FormErrorMessage>Error message</FormErrorMessage>
         </FormControl>
       </Flex>

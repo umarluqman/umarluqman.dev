@@ -1,4 +1,5 @@
 import { Text, Button, useColorMode } from "@chakra-ui/core";
+import { linkColor } from "../styles/colors";
 
 const DesignToCodeDesc = () => {
   const { colorMode } = useColorMode();
@@ -17,6 +18,7 @@ const DesignToCodeDesc = () => {
         verticalAlign="baseline"
         target="_blank"
         rel="noopener noreferrer"
+        color={linkColor[colorMode]}
       >
         Refactoring UI book
       </Button>

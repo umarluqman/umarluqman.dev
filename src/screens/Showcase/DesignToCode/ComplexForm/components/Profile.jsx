@@ -11,20 +11,30 @@ import {
   Textarea,
   Grid,
   theme,
+  useColorMode,
 } from "@chakra-ui/core";
 import useMedia from "use-media";
+import { textColor, subtextColor } from "../../../../../styles/colors";
 
 const Profile = ({ values, ...formProps }) => {
-  const { lg, md: medium, xl, sm: small } = theme.breakpoints;
+  const { colorMode } = useColorMode();
+  const { md: medium } = theme.breakpoints;
+
+  console.log("formProps", formProps);
 
   const md = useMedia(`(min-width: ${medium})`);
   return (
-    <Grid templateColumns={md ? "1fr 2fr" : "1fr"} p={4} mt={2}>
+    <Grid
+      templateColumns={md ? "1fr 2fr" : "1fr"}
+      p={4}
+      mt={2}
+      color={textColor[colorMode]}
+    >
       <Box mr={8} mb={4}>
-        <Text fontSize="xl" mb={4}>
+        <Text fontSize="xl" mb={4} color={textColor[colorMode]}>
           Profile
         </Text>
-        <Text color="gray.500">
+        <Text color={subtextColor[colorMode]}>
           This information will be shown publicly so be careful what information
           you provide
         </Text>
@@ -51,9 +61,6 @@ const Profile = ({ values, ...formProps }) => {
               isFullWidth
               focusBorderColor="blue.500"
               errorBorderColor="red.500"
-              value={values.firstName}
-              {...formProps}
-              id="firstName"
             />
             <FormErrorMessage>Error message</FormErrorMessage>
           </FormControl>
@@ -66,9 +73,6 @@ const Profile = ({ values, ...formProps }) => {
               isFullWidth
               focusBorderColor="blue.500"
               errorBorderColor="red.500"
-              value={values.lastName}
-              {...formProps}
-              id="lastName"
             />
             <FormErrorMessage>Error message</FormErrorMessage>
           </FormControl>
@@ -96,13 +100,7 @@ const Profile = ({ values, ...formProps }) => {
         </FormControl>
         <FormControl mb={8} width="100%">
           <FormLabel>About you</FormLabel>
-          <Textarea
-            focusBorderColor="blue.500"
-            errorBorderColor="red.500"
-            value={values.aboutYou}
-            {...formProps}
-            id="aboutYou"
-          />
+          <Textarea focusBorderColor="blue.500" errorBorderColor="red.500" />
           <FormErrorMessage>Error message</FormErrorMessage>
         </FormControl>
       </Flex>
