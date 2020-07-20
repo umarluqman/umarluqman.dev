@@ -27,17 +27,21 @@ const PlanBox = React.forwardRef((props, ref) => {
   const nameText = { light: "gray.600", dark: "gray.200" };
   const blackWhite = { light: "black", dark: "white" };
 
-  const bg = { light: "gray.50", dark: "gray.800" };
+  const bg = { light: "white", dark: "gray.800" };
   const bgHover = { light: "#e6fffa3d", dark: theme.colors.teal[800] };
 
   const bgIsChecked = {
     light: theme.colors.teal[50],
     dark: theme.colors.teal[900],
   };
-
   const bgIsCheckedHover = {
     light: theme.colors.teal[50],
     dark: theme.colors.teal[900],
+  };
+
+  const borderColor = {
+    light: theme.colors.gray[300],
+    dark: theme.colors.gray[700],
   };
 
   return (
@@ -49,7 +53,7 @@ const PlanBox = React.forwardRef((props, ref) => {
       border={
         isChecked
           ? `2px solid ${theme.colors.teal[400]}`
-          : `2px solid ${theme.colors.gray[400]}`
+          : `2px solid ${borderColor[colorMode]}`
       }
       bg={bg[colorMode]}
       p={4}
@@ -113,7 +117,7 @@ const PlanBox = React.forwardRef((props, ref) => {
 const Billing = ({ values, ...formProps }) => {
   const borderColor = {
     light: theme.colors.gray[300],
-    dark: theme.colors.gray[900],
+    dark: theme.colors.gray[600],
   };
 
   const { colorMode } = useColorMode();

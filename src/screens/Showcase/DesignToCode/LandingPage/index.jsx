@@ -75,14 +75,14 @@ const Index = () => {
           <Box pt={12} pb={6}>
             <Logo></Logo>
           </Box>
-          <Text fontSize="5xl" color="#1F2E41" lineHeight="1.1" mb={4}>
+          <Text fontSize="5xl" color="#1F2E41" lineHeight="1.1" mb={10}>
             Remember when Slack stole Screenhero from us?
           </Text>
           <Text fontSize="3xl" color="#465568" lineHeight="1.2" mb={8}>
             We do too, and it sucked.<br></br>
             That's why we're on a mission to replace it.
           </Text>
-          <Flex align="center" mb={8}>
+          <Flex align="center" mb={4}>
             {xs && (
               <Box
                 fontWeight={900}
@@ -124,6 +124,7 @@ const Index = () => {
                   textTransform="lowercase"
                   color="#465568"
                   float="none"
+                  lineHeight="tall"
                 >
                   <span
                     css={{
@@ -188,7 +189,7 @@ const Index = () => {
             mt={16}
           >
             <Input
-              placeholder="umarluqman.78@gmail.com"
+              placeholder="Get free the checklist"
               onChange={handleEmail}
               value={email}
               css={{ color: "black" }}
@@ -206,6 +207,8 @@ const Index = () => {
                   _active={{
                     backgroundColor: "#6f8bfb",
                   }}
+                  borderTopLeftRadius={{ md: 0 }}
+                  borderBottomLeftRadius={{ md: 0 }}
                 >
                   <Text fontSize="sm" letterSpacing={0.5}>
                     STAY IN THE LOOP
