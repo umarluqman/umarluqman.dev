@@ -189,10 +189,11 @@ const Index = () => {
             mt={16}
           >
             <Input
-              placeholder="Get free the checklist"
+              placeholder="Enter your email"
               onChange={handleEmail}
               value={email}
-              css={{ color: "black" }}
+              color="black"
+              borderColor="gray.200"
             />
             {xs ? (
               <InputRightElement width="max-content">

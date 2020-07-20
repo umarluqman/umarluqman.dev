@@ -75,9 +75,10 @@ const Form = () => {
         alignItems="center"
         justifyContent="flex-start"
         // backgroundColor="gray.50"
-        pb={80}
+        pb={8}
         width="100%"
         bg={bgColor[colorMode]}
+        mb={8}
       >
         <Box maxWidth={1100} p={4}>
           <Box>
