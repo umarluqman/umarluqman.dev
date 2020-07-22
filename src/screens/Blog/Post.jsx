@@ -33,6 +33,7 @@ const Post = ({ post = {} }) => {
       lastPublicationDate = new Date(),
       firstPublicationDate = new Date(),
     } = {},
+    readingTime,
     og_description = "",
     caption,
   } = post;
@@ -144,7 +145,7 @@ const Post = ({ post = {} }) => {
             </Stack>
 
             <Text fontWeight={400} color={textColor[colorMode]} fontSize="sm">
-              3 mins read
+              {readingTime.text}
             </Text>
           </Flex>
           <Box

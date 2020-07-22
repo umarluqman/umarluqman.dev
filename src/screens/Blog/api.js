@@ -1,5 +1,7 @@
 import Prismic from "prismic-javascript";
 import fetch from "isomorphic-unfetch";
+import { RichText } from "prismic-reactjs";
+import readingTime from "reading-time";
 
 const REPOSITORY = process.env.PRISMIC_REPOSITORY_NAME;
 const REF_API_URL = `https://${REPOSITORY}.prismic.io/api/v2`;
@@ -11,6 +13,16 @@ export const API_LOCALE = process.env.PRISMIC_REPOSITORY_LOCALE;
 export const PrismicClient = Prismic.client(REF_API_URL, {
   accessToken: API_TOKEN,
 });
+
+const flatten = function (input) {
+  var result = [];
+
+  input.forEach(function (element) {
+    result = result.concat(Array.isArray(element) ? flatten(element) : element);
+  });
+
+  return result;
+};
 
 async function fetchAPI(query, { previewData, variables } = {}) {
   const prismicAPI = await PrismicClient.getApi();
@@ -171,7 +183,19 @@ export async function getPostAndMorePosts(slug, previewData) {
     .filter(({ node }) => node._meta.uid !== slug)
     .slice(0, 2);
 
-  return data;
+  const bodyWithText = data.post.body
+    .filter(({ type }) => type === "text" || type === "quote")
+    .map(({ primary }) => primary?.quote || primary?.text);
+
+  const baseText = RichText.asText(flatten(bodyWithText));
+
+  return {
+    ...data,
+    post: {
+      ...data.post,
+      readingTime: readingTime(baseText),
+    },
+  };
 }
 
 export async function getAllPosts(previewData) {
@@ -229,7 +253,21 @@ export async function getAllPosts(previewData) {
       { previewData }
     );
 
-    return data.allPosts.edges;
+    const textArrayPosts = data.allPosts.edges.map(({ node: { body } }) => {
+      const bodyWithText = body
+        .filter(({ type }) => type === "text" || type === "quote")
+        .map(({ primary }) => primary?.quote || primary?.text);
+      return bodyWithText;
+    });
+
+    const textStringPosts = textArrayPosts.map((post) =>
+      RichText.asText(flatten(post))
+    );
+
+    return data.allPosts.edges.map((post, index) => ({
+      ...post,
+      readingTime: readingTime(textStringPosts[index]),
+    }));
   } catch (error) {
     console.log({ error });
   }
