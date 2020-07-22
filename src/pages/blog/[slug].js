@@ -13,7 +13,7 @@ export default function Post({ post, ...others }) {
   return (
     <React.Fragment>
       <Head>
-        <title key="title">{post?.title[0].text}</title>
+        <title key="title">{post?.title?.[0]?.text}</title>
       </Head>
       <PostScreen post={post} {...others} />
     </React.Fragment>

@@ -130,7 +130,7 @@ export default function Blog({ allPosts }) {
                           color={textColor[colorMode]}
                           fontSize="sm"
                         >
-                          {readingTime.text}
+                          {readingTime?.text}
                         </Text>
                       </Flex>
                       <Text

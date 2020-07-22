@@ -39,14 +39,14 @@ const Post = ({ post = {} }) => {
   } = post;
 
   const SEO = {
-    title: title[0].text,
+    title: title[0]?.text,
     description: og_description?.[0]?.text,
     canonical: `https://umarluqman.dev/blog/${uid}`,
     openGraph: {
       type: "website",
       locale: "en_GB",
       url: `https://umarluqman.dev/blog/${uid}`,
-      title: title[0].text,
+      title: title[0]?.text,
       description: og_description?.[0]?.text,
       images: [
         {
@@ -145,7 +145,7 @@ const Post = ({ post = {} }) => {
             </Stack>
 
             <Text fontWeight={400} color={textColor[colorMode]} fontSize="sm">
-              {readingTime.text}
+              {readingTime?.text}
             </Text>
           </Flex>
           <Box
