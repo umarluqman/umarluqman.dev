@@ -51,10 +51,11 @@ const Home = (props) => {
           </StyledStrike>
           . <br></br>
         </Text>
-        <Box w="full" height={2}></Box>
+        <Box w="full" height={1}></Box>
         <Text color={textColor[colorMode]} fontFamily="Inter" lineHeight={1.8}>
-          I prefer to write code expressively with minimal abstraction. I'm
-          aware of the tradeoffs of both{" "}
+          I prefer to start coding expressively with minimal abstraction and
+          once there is more duplication, then only I will start abstracting
+          into functions. I'm aware of the tradeoffs of both{" "}
           <Text as="spam" color={headingColor[colorMode]} fontWeight={500}>
             DRY (Don't repeat yourself)
           </Text>{" "}
