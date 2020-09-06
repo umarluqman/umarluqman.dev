@@ -89,12 +89,6 @@ export async function getPostAndMorePosts(slug, previewData) {
           picture
         }
       }
-      category {
-        ...on Category {
-          name
-          badge_color
-        }
-      }
       _meta {
         uid
         firstPublicationDate
@@ -144,7 +138,7 @@ export async function getPostAndMorePosts(slug, previewData) {
           category {
             ...on Category {
               name
-              badge_color
+              badgeColor
             }
           }
           _meta {
@@ -230,7 +224,7 @@ export async function getAllPosts(previewData) {
             category {
               ...on Category {
                 name
-                badge_color
+                badgeColor
               }
             }
             _meta {
@@ -269,6 +263,8 @@ export async function getAllPosts(previewData) {
   `,
       { previewData }
     );
+
+    console.log("data.allPosts", data.allPosts);
 
     const textArrayPosts = data.allPosts.edges.map(({ node: { body } }) => {
       const bodyWithText = body

@@ -14,12 +14,7 @@ import { jsx } from "@emotion/core";
 import dayjs from "dayjs";
 import Router from "next/router";
 import Header from "../../components/Header";
-import {
-  badgeBgColor,
-  badgeTextColor,
-  headingColor,
-  textColor,
-} from "../../styles/colors";
+import { headingColor, textColor } from "../../styles/colors";
 
 export default function Blog({ allPosts }) {
   const { colorMode } = useColorMode();
@@ -56,6 +51,15 @@ export default function Blog({ allPosts }) {
               _meta: { uid },
             } = node;
 
+            const badgeTextColor = {
+              light: `${category?.badgeColor}.400`,
+              dark: `${category?.badgeColor}.100`,
+            };
+            const badgeBgColor = {
+              light: `${category?.badgeColor}.100`,
+              dark: `${category?.badgeColor}.700`,
+            };
+
             return (
               <React.Fragment key={uid}>
                 <Flex
@@ -88,7 +92,6 @@ export default function Blog({ allPosts }) {
                     <Box>
                       <Badge
                         mb={2}
-                        variantColor={category?.badge_color}
                         borderRadius={99}
                         px={2}
                         fontWeight={500}

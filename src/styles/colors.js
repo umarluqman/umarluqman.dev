@@ -9,9 +9,3 @@ export const linkColor = { light: "black", dark: "#16bdca" };
  * Showcase
  */
 export const subtextColor = { light: "gray.500", dark: "gray.400" };
-
-/**
- * Blog
- */
-export const badgeTextColor = { light: "purple.400", dark: "purple.100" };
-export const badgeBgColor = { light: "purple.100", dark: "purple.700" };
