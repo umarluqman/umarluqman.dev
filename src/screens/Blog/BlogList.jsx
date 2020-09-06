@@ -52,6 +52,8 @@ export default function Blog({ allPosts }) {
               excerpt,
               cover_image = "",
               date,
+              category,
+              badge_color,
               _meta: { uid },
             } = node;
 
@@ -87,7 +89,7 @@ export default function Blog({ allPosts }) {
                     <Box>
                       <Badge
                         mb={2}
-                        variantColor="purple"
+                        variantColor={badge_color}
                         borderRadius={99}
                         px={2}
                         fontWeight={500}
@@ -96,7 +98,7 @@ export default function Blog({ allPosts }) {
                         textColor={badgeTextColor[colorMode]}
                         bg={badgeBgColor[colorMode]}
                       >
-                        Philosophy
+                        {category?.name}
                       </Badge>
                       <Heading
                         as="h2"
