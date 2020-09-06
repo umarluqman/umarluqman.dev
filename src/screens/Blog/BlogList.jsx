@@ -53,7 +53,6 @@ export default function Blog({ allPosts }) {
               cover_image = "",
               date,
               category,
-              badge_color,
               _meta: { uid },
             } = node;
 
@@ -89,7 +88,7 @@ export default function Blog({ allPosts }) {
                     <Box>
                       <Badge
                         mb={2}
-                        variantColor={badge_color}
+                        variantColor={category?.badge_color}
                         borderRadius={99}
                         px={2}
                         fontWeight={500}
