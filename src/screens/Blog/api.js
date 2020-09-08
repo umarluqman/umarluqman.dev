@@ -135,12 +135,6 @@ export async function getPostAndMorePosts(slug, previewData) {
               picture
             }
           }
-          category {
-            ...on Category {
-              name
-              badgeColor
-            }
-          }
           _meta {
             uid
           }
@@ -224,7 +218,7 @@ export async function getAllPosts(previewData) {
             category {
               ...on Category {
                 name
-                badgeColor
+                badge_color
               }
             }
             _meta {

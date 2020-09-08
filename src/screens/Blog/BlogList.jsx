@@ -52,12 +52,12 @@ export default function Blog({ allPosts }) {
             } = node;
 
             const badgeTextColor = {
-              light: `${category?.badgeColor}.400`,
-              dark: `${category?.badgeColor}.100`,
+              light: `${category?.badge_color}.400`,
+              dark: `${category?.badge_color}.100`,
             };
             const badgeBgColor = {
-              light: `${category?.badgeColor}.100`,
-              dark: `${category?.badgeColor}.700`,
+              light: `${category?.badge_color}.100`,
+              dark: `${category?.badge_color}.700`,
             };
 
             return (

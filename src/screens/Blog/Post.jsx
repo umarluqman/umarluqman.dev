@@ -12,7 +12,14 @@ import {
 import { css, jsx } from "@emotion/core";
 import dayjs from "dayjs";
 import { BlogJsonLd, NextSeo } from "next-seo";
-import { TwitterIcon, TwitterShareButton } from "react-share";
+import {
+  TwitterIcon,
+  TwitterShareButton,
+  FacebookIcon,
+  RedditIcon,
+  FacebookShareButton,
+  RedditShareButton,
+} from "react-share";
 import Header from "../../components/Header";
 import { textColor } from "../../styles/colors";
 import SliceZone from "./components/SliceZone";
@@ -104,13 +111,13 @@ const Post = ({ post = {} }) => {
               margin-top: 32px;
               margin-bottom: 32px;
             }
-            #stack {
+            .stack {
               margin-top: 0;
             }
             #box {
               margin-top: 0;
             }
-            #stack > * {
+            .stack > * {
               margin-top: 0;
               margin-right: 12px;
             }
@@ -121,7 +128,7 @@ const Post = ({ post = {} }) => {
           `}
         >
           <Header colorMode={colorMode}>{title[0]?.text}</Header>
-          <Flex align="center" id="stack" justify="space-between">
+          <Flex align="center" className="stack" justify="space-between">
             <Stack isInline align="center">
               <Avatar src={author?.picture?.url} size="sm"></Avatar>{" "}
               <Box id="box">
@@ -165,7 +172,7 @@ const Post = ({ post = {} }) => {
           </Box>
 
           <SliceZone sliceZone={body} />
-          <Stack spacing={8} isInline>
+          <Stack spacing={8} className="stack" isInline>
             <Tooltip label="Share on Twitter">
               <TwitterShareButton
                 url={`https://umarluqman.dev/blog/${uid}`}
@@ -173,6 +180,22 @@ const Post = ({ post = {} }) => {
               >
                 <TwitterIcon size={45} round />
               </TwitterShareButton>
+            </Tooltip>
+            <Tooltip label="Share on Facebook">
+              <FacebookShareButton
+                url={`https://umarluqman.dev/blog/${uid}`}
+                title={title[0]?.text}
+              >
+                <FacebookIcon size={45} round />
+              </FacebookShareButton>
+            </Tooltip>
+            <Tooltip label="Share on Reddit">
+              <RedditShareButton
+                url={`https://umarluqman.dev/blog/${uid}`}
+                title={title[0]?.text}
+              >
+                <RedditIcon size={45} round />
+              </RedditShareButton>
             </Tooltip>
           </Stack>
         </Box>
