@@ -23,6 +23,8 @@ import {
 import Header from "../../components/Header";
 import { textColor } from "../../styles/colors";
 import SliceZone from "./components/SliceZone";
+import TextSlice from "./components/Slices/Text";
+import { RichText } from "prismic-reactjs";
 
 const Post = ({ post = {} }) => {
   const { colorMode } = useColorMode();
@@ -158,7 +160,8 @@ const Post = ({ post = {} }) => {
           <Box
             borderRadius={8}
             h={400}
-            my={12}
+            mt={12}
+            mb={16}
             boxShadow="0 30px 60px -10px rgba(0,0,0,0.2), 0 18px 36px -18px rgba(0,0,0,0.22)"
           >
             <Image
@@ -169,6 +172,9 @@ const Post = ({ post = {} }) => {
               h="inherit"
               borderRadius={8}
             />
+            <Text color={textColor[colorMode]} fontSize="xs">
+              {RichText.asText(caption)}
+            </Text>
           </Box>
 
           <SliceZone sliceZone={body} />
