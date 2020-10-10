@@ -1,6 +1,12 @@
-# Personal site with Next.js & Chakra UI
+# Digital Garden with Next.js static site generation & Prismic
 
-My personal static site without any CMS yet.
+My personal static site with Prismic CMS
+
+## Stacks
+- Chakra UI
+- Prismic
+- NextJS
+- Vercel
 
 ## How to run
 
