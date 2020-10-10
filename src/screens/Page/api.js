@@ -52,28 +52,11 @@ async function fetchAPI(query, { previewData, variables } = {}) {
   }
 }
 
-export async function getAllPostsWithSlug() {
-  const data = await fetchAPI(`
-    {
-      allPosts {
-        edges {
-          node {
-            _meta {
-              uid
-            }
-          }
-        }
-      }
-    }
-  `);
-  return data?.allPosts?.edges;
-}
-
-export async function getPostAndMorePosts(slug, previewData) {
+export async function getPageAndMorePages(slug, previewData) {
   const data = await fetchAPI(
     `
-  query PostBySlug($slug: String!, $lang: String!) {
-    post(uid: $slug, lang: $lang) {
+  query PageBySlug($slug: String!, $lang: String!) {
+    page(uid: $slug, lang: $lang) {
       title
       date
       cover_image
@@ -90,21 +73,21 @@ export async function getPostAndMorePosts(slug, previewData) {
         lastPublicationDate
       }
       body {
-        ... on PostBodyText{
+        ... on PageBodyText{
           type
           primary{
             text
           }
         }
 
-        ... on PostBodyQuote{
+        ... on PageBodyQuote{
           type
           primary{
             quote
           }
         }
    
-        ... on PostBodyImage_with_caption{
+        ... on PageBodyImage_with_caption{
           type
           primary{
             image
@@ -116,51 +99,6 @@ export async function getPostAndMorePosts(slug, previewData) {
         __typename
       }
       og_description
-    }
-   morePosts: allPosts(sortBy: date_DESC, first: 3) {
-      edges {
-        node {
-          title        
-          date
-          cover_image
-          excerpt
-          author {
-            ...on Author {
-              name
-              picture
-            }
-          }
-          _meta {
-            uid
-          }
-          body {
-            ... on PostBodyText{
-              type
-              primary{
-                text
-              }
-            }
-    
-            ... on PostBodyQuote{
-              type
-              primary{
-                quote
-              }
-            }
-       
-            ... on PostBodyImage_with_caption{
-              type
-              primary{
-                image
-                caption
-              }
-              label
-              
-            }
-            __typename
-          }
-        }
-      }
     }
   }
   `,
@@ -175,11 +113,11 @@ export async function getPostAndMorePosts(slug, previewData) {
 
   console.log("data", data);
 
-  data.morePosts = data.morePosts.edges
+  data.morePages = data.morePages.edges
     .filter(({ node }) => node._meta.uid !== slug)
     .slice(0, 2);
 
-  const bodyWithText = data.post.body
+  const bodyWithText = data.page.body
     .filter(({ type }) => type === "text" || type === "quote")
     .map(({ primary }) => primary?.quote || primary?.text);
 
@@ -187,56 +125,43 @@ export async function getPostAndMorePosts(slug, previewData) {
 
   return {
     ...data,
-    post: {
-      ...data.post,
+    page: {
+      ...data.page,
       readingTime: readingTime(baseText),
     },
   };
 }
 
-export async function getAllPosts(previewData) {
+export async function getAllPages(previewData) {
   try {
     const data = await fetchAPI(
       `
     query {
-      allPosts(sortBy: date_DESC) {
+      allPages(sortBy: date_DESC) {
         edges {
           node {
-            date
+            page_name,
             title    
-            cover_image    
-            excerpt
-            author {
-              ...on Author {
-                name
-                picture
-              }
-            }
-            category {
-              ...on Category {
-                name
-                badge_color
-              }
-            }
+            
             _meta {
               uid
             }
             body {
-              ... on PostBodyText{
+              ... on PageBodyText{
                 type
                 primary{
                   text
                 }
               }
       
-              ... on PostBodyQuote{
+              ... on PageBodyQuote{
                 type
                 primary{
                   quote
                 }
               }
          
-              ... on PostBodyImage_with_caption{
+              ... on PageBodyImage_with_caption{
                 type
                 primary{
                   image
@@ -255,22 +180,22 @@ export async function getAllPosts(previewData) {
       { previewData }
     );
 
-    console.log("data.allPosts", data.allPosts);
+    console.log("data.allPages", data.allPages);
 
-    const textArrayPosts = data.allPosts.edges.map(({ node: { body } }) => {
+    const textArrayPages = data.allPages.edges.map(({ node: { body } }) => {
       const bodyWithText = body
         .filter(({ type }) => type === "text" || type === "quote")
         .map(({ primary }) => primary?.quote || primary?.text);
       return bodyWithText;
     });
 
-    const textStringPosts = textArrayPosts.map((post) =>
-      RichText.asText(flatten(post))
+    const textStringPages = textArrayPages.map((page) =>
+      RichText.asText(flatten(page))
     );
 
-    return data.allPosts.edges.map((post, index) => ({
-      ...post,
-      readingTime: readingTime(textStringPosts[index]),
+    return data.allPages.edges.map((page, index) => ({
+      ...page,
+      readingTime: readingTime(textStringPages[index]),
     }));
   } catch (error) {
     console.log({ error });
