@@ -3,10 +3,10 @@
 My personal static site with Prismic CMS
 
 ## Stacks
-- Chakra UI
-- Prismic
-- NextJS
-- Vercel
+- Chakra UI, as UI library
+- Prismic CMS, as backend
+- NextJS, as static site generation framework
+- Vercel, serverless solution
 
 ## How to run
 
