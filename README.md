@@ -1,6 +1,6 @@
-# Digital Garden with Next.js static site generation & Prismic
+# umarluqman.dev Digital Garden
 
-My personal static site with Prismic CMS
+Sharing ideas or anything that interest me in one site.
 
 ## Stacks
 - Chakra UI, as UI library
