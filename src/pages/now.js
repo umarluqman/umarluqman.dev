@@ -53,6 +53,4 @@ const NowNowNow = () => {
   );
 };
 
-NowNowNow.propTypes = {};
-
 export default NowNowNow;
