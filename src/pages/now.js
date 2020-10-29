@@ -4,8 +4,8 @@ import React from "react";
 
 const BulletPoint = ({ children, ...stylingProps }) => {
   return (
-    <Flex align="center" {...stylingProps}>
-      <Icon name="check-circle" mr={2} color="green.400"></Icon>
+    <Flex {...stylingProps}>
+      <Icon name="check-circle" mr={2} color="green.400" mt={"5px"}></Icon>
       <Text>{children}</Text>
     </Flex>
   );
