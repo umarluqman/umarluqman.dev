@@ -1,14 +1,6 @@
+import { Button, Flex, IconButton, Link, useColorMode } from "@chakra-ui/core";
 import React from "react";
-import {
-  Flex,
-  Button,
-  Link,
-  Box,
-  IconButton,
-  useColorMode,
-} from "@chakra-ui/core";
-import PropTypes from "prop-types";
-import { GitHub, Twitter, Mail } from "react-feather";
+import { GitHub, Mail, Twitter } from "react-feather";
 
 const Page = ({ children }) => {
   const { colorMode } = useColorMode();
