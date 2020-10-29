@@ -47,6 +47,8 @@ const NowNowNow = () => {
         w="full"
         maxW={700}
         color={textColor[colorMode]}
+        p={6}
+        mb={8}
       >
         <Heading mb={8}>What I'm up to now?</Heading>
         <BulletPoint mb={4}>Living in Cyberjaya, Malaysia.</BulletPoint>
