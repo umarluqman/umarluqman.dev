@@ -20,11 +20,11 @@ const NowNowNow = () => {
     <>
       <NextSeo
         title="Now"
-        description="What's I'm up to now?"
+        description="https://umarluqman.dev/now"
         openGraph={{
-          url: "https://www.url.ie/a",
-          title: "Open Graph Title",
-          description: "Open Graph Description",
+          url: "https://umarluqman.dev/now",
+          title: "Now",
+          description: "https://umarluqman.dev/now",
           images: [
             {
               url:
