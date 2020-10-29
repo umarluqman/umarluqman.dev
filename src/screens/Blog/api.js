@@ -1,5 +1,5 @@
-import Prismic from "prismic-javascript";
 import fetch from "isomorphic-unfetch";
+import Prismic from "prismic-javascript";
 import { RichText } from "prismic-reactjs";
 import readingTime from "reading-time";
 
@@ -257,8 +257,6 @@ export async function getAllPosts(previewData) {
   `,
       { previewData }
     );
-
-    console.log("data.allPosts", data.allPosts);
 
     const textArrayPosts = data.allPosts.edges.map(({ node: { body } }) => {
       const bodyWithText = body
