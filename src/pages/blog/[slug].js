@@ -1,15 +1,13 @@
 /**@jsx jsx */
 import { jsx } from "@emotion/core";
+import Head from "next/head";
 import {
-  getPostAndMorePosts,
   getAllPostsWithSlug,
+  getPostAndMorePosts,
 } from "../../screens/Blog/api";
 import PostScreen from "../../screens/Blog/Post";
-import Head from "next/head";
 
 export default function Post({ post, ...others }) {
-  console.log("x", post);
-
   return (
     <React.Fragment>
       <Head>
@@ -36,8 +34,9 @@ export async function getStaticProps({ params, preview = false, previewData }) {
 
 export async function getStaticPaths() {
   const allPosts = await getAllPostsWithSlug();
+
   return {
-    paths: allPosts?.map(({ node }) => `/blog/${node._meta.uid}`) || [],
+    paths: allPosts?.map(({ node }) => `/blog/${node._meta.uid}`) ?? [],
     fallback: true,
   };
 }

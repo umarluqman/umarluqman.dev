@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   Box,
   Button,
@@ -6,21 +5,20 @@ import {
   FormControl,
   FormErrorMessage,
   FormLabel,
+  Grid,
   Input,
   Text,
   Textarea,
-  Grid,
   theme,
   useColorMode,
 } from "@chakra-ui/core";
+import * as React from "react";
 import useMedia from "use-media";
-import { textColor, subtextColor } from "../../../../../styles/colors";
+import { subtextColor, textColor } from "../../../../../styles/colors";
 
 const Profile = ({ values, ...formProps }) => {
   const { colorMode } = useColorMode();
   const { md: medium } = theme.breakpoints;
-
-  console.log("formProps", formProps);
 
   const md = useMedia(`(min-width: ${medium})`);
   return (
