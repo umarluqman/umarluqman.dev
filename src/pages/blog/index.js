@@ -1,7 +1,7 @@
 /**@jsx jsx */
 import { jsx } from "@emotion/core";
 import { getAllPosts } from "../../screens/Blog/api";
-import BlogScreen from "../../screens/Blog/BlogList";
+import BlogScreen from "../../screens/Blog/PostList";
 
 export default function Blog(props) {
   return <BlogScreen {...props} />;
