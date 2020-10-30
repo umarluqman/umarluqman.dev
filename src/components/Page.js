@@ -1,8 +1,8 @@
-import React, { memo } from "react";
-import { Flex, Button, IconButton, useColorMode } from "@chakra-ui/core";
+import { Button, Flex, IconButton, useColorMode } from "@chakra-ui/core";
 import Link from "next/link";
-import Footer from "./Footer";
+import React, { memo } from "react";
 import { Moon, Sun } from "react-feather";
+import Footer from "./Footer";
 
 const Page = ({ children }) => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -26,6 +26,7 @@ const Page = ({ children }) => {
             w={800}
             justify={{ base: "space-between", sm: "flex-end" }}
             p={4}
+            as="nav"
           >
             <Link href="/showcase">
               <Button
