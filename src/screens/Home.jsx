@@ -42,8 +42,7 @@ const Home = (props) => {
           lineHeight="taller"
         >
           I'm a software engineer living in Malaysia, directed towards building
-          solution with a primary focus on future maintability and business
-          aspects{" "}
+          solution with a primary focus on future maintability.
           <StyledStrike>
             {" "}
             rather than feeding my own impulse of writing complex code to feel
