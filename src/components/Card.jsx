@@ -17,7 +17,9 @@ const Card = ({ title, subtitle, pathname, children }) => {
   const textColor = { light: "gray.700", dark: "gray.200" };
   const backgroundColor = { light: "white", dark: "gray.700" };
   const handleClick = () => {
-    Router.push(pathname);
+    if (pathname) {
+      Router.push(pathname);
+    }
   };
   return (
     <Flex

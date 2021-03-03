@@ -67,14 +67,25 @@ const Showcase = () => {
               subtitle="Image gallery in a grid with a smooth hover transition."
               pathname="/showcase/grid-gallery"
             ></Card>
+            <a
+              href="https://focusmode.app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Card
+                title={"FocusMode Chrome Extension"}
+                subtitle="Chrome app to help you make an informed decision when visiting distracting websites"
+                pathname=""
+              ></Card>
+            </a>
           </Grid>
           <Box h={12}></Box>
-          <Flex justify="center" my={10}>
+          {/* <Flex justify="center" my={10}>
             <Text mb={3} color={textColor[colorMode]} fontWeight={300}>
               A fashion e-commerce site with NextJS & headless CMS will be
               featured here soon ⚡️
             </Text>
-          </Flex>
+          </Flex> */}
         </Box>
       </Box>
     </Flex>
