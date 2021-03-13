@@ -54,16 +54,16 @@ const NowNowNow = () => {
         <BulletPoint mb={4}>Living in Cyberjaya, Malaysia.</BulletPoint>
         <BulletPoint mb={4}>
           Stil coding JavaScript, specifically React for my day job.
-        </BulletPoint>{" "}
+        </BulletPoint>
         <BulletPoint mb={4}>
           Just bought my first drone, DJI FPV. Going to explore this domain.
         </BulletPoint>
         <BulletPoint mb={3}>
-          Trying to be fit and live a healthy lifestyle.
+          Made and launched focusmode.app last month.
         </BulletPoint>
         <Text ml={8} mb={2}>
-          Made and launched focusmode.app last month. New version with dark mode
-          is waiting for approval from Chrome store's team.
+          New version with dark mode is waiting for approval from Chrome store's
+          team.
         </Text>
         <Text
           ml={8}
