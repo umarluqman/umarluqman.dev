@@ -61,10 +61,6 @@ const NowNowNow = () => {
         <BulletPoint mb={3}>
           Made and launched focusmode.app last month.
         </BulletPoint>
-        <Text ml={8} mb={2}>
-          New version with dark mode is waiting for approval from Chrome store's
-          team.
-        </Text>
         <Text
           ml={8}
           as="i"
