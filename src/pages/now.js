@@ -51,15 +51,18 @@ const NowNowNow = () => {
         mb={8}
       >
         <Heading mb={8}>What I'm up to now?</Heading>
-        <BulletPoint mb={4}>Living in Cyberjaya, Malaysia.</BulletPoint>
+        <BulletPoint mb={4}>Got married to my favourite person 👩🏻‍💻</BulletPoint>
         <BulletPoint mb={4}>
-          Stil coding JavaScript, specifically React for my day job.
+          My fitness level have slighly degraded but I will still be jump roping
+          / doing calisthenics.
         </BulletPoint>
         <BulletPoint mb={4}>
-          Just bought my first drone, DJI FPV. Going to explore this domain.
+          Developing muscle memory for controlling my drone. Installed LiftOff,
+          a drone simulator to learn master acro / manual mode/
         </BulletPoint>
-        <BulletPoint mb={3}>
-          Made and launched focusmode.app last month.
+        <BulletPoint mb={4}>
+          My web extention, focusmode.app have over 100+ users as of right now.
+          Blessed to be able to contribute to the world.
         </BulletPoint>
         <Text
           ml={8}
@@ -68,7 +71,7 @@ const NowNowNow = () => {
           fontSize="sm"
           color={smallTextColor[colorMode]}
         >
-          Last updated on March 2021
+          Last updated on April 2021
         </Text>
       </Flex>
     </>
