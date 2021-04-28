@@ -58,11 +58,11 @@ const NowNowNow = () => {
         </BulletPoint>
         <BulletPoint mb={4}>
           Developing muscle memory for controlling my drone. Installed LiftOff,
-          a drone simulator to learn master acro / manual mode/
+          a drone simulator to learn master acro / manual mode.
         </BulletPoint>
         <BulletPoint mb={4}>
           My web extention, focusmode.app have over 100+ users as of right now.
-          Blessed to be able to contribute to the world.
+          Blessed to be able to give back to the world.
         </BulletPoint>
         <Text
           ml={8}
