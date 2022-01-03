@@ -103,13 +103,13 @@ const Post = ({ post = {} }) => {
           as="article"
           p={6}
           css={css`
-            * {
-              margin: 0;
-            }
-            * + * {
-              margin: 1.2em 0 0;
-            }
             #quote {
+              * {
+                margin: 0;
+              }
+              * + * {
+                margin: 1.2em 0 0;
+              }
               margin-top: 32px;
               margin-bottom: 32px;
             }

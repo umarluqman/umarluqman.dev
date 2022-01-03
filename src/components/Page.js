@@ -29,14 +29,16 @@ const Page = ({ children }) => {
             as="nav"
           >
             <Link href="/showcase">
-              <Button
-                variant="ghost"
-                color={menuColor[colorMode]}
-                fontWeight={400}
-                px={{ base: 2, sm: 4 }}
-              >
-                Showcase
-              </Button>
+              <a>
+                <Button
+                  variant="ghost"
+                  color={menuColor[colorMode]}
+                  fontWeight={400}
+                  px={{ base: 2, sm: 4 }}
+                >
+                  Now
+                </Button>
+              </a>
             </Link>
 
             <Link href="/">
